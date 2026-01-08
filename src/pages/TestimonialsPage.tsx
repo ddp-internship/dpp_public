@@ -168,7 +168,7 @@ export const TestimonialsPage = () => {
                     {/* Person Info */}
                     <div className="pt-8 border-t border-gray-50 flex items-center gap-5">
                         <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-md border-2 border-white shrink-0 bg-gray-50">
-                          <img src={getStorageUrl(item.gambar)} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt={item.nama} />
+                          <img src={item.gambar_url} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt={item.nama} />
                         </div>
                         <div className="overflow-hidden">
                           <h4 className="font-black text-[#111827] text-xs uppercase truncate tracking-widest">{item.nama}</h4>

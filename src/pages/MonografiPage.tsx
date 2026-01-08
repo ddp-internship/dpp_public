@@ -156,7 +156,7 @@ export const MonografiPage = () => {
                 {items.map((item) => (
                   <div key={item.id} className="group cursor-pointer" onClick={() => handleOpenGate(item)}>
                     <div className="relative aspect-[3/4.2] rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white transition-all duration-700 group-hover:shadow-[0_30px_60px_rgba(227,36,43,0.15)] group-hover:-translate-y-3 bg-gray-50">
-                       <img src={getStorageUrl(item.gambar)} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" alt={item.desa} />
+                       <img src={item.gambar_url} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" alt={item.desa} />
                        <div className="absolute inset-0 bg-[#111827]/70 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[3px] flex items-center justify-center">
                             <div className="bg-[#E3242B] p-4 rounded-2xl text-white transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-2xl">
                                 <BookOpen size={24} />

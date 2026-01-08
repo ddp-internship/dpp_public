@@ -124,7 +124,7 @@ export const BukuJurnalPage = () => {
                   {items.map((item) => (
                     <div key={item.id} className="group cursor-pointer" onClick={() => setSelected(item)}>
                       <div className="relative aspect-[3/4.5] rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 transition-all duration-700 group-hover:shadow-[0_40px_80px_rgba(227,36,43,0.15)] group-hover:-translate-y-3">
-                         <img src={getStorageUrl(item.gambar)} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" alt="Cover" />
+                         <img src={item.gambar_url} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" alt="Cover" />
                          <div className="absolute inset-0 bg-[#111827]/70 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[3px] flex items-center justify-center">
                              <div className="bg-[#E3242B] p-4 rounded-2xl text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 shadow-2xl">
                                 <Bookmark size={24} />
@@ -184,7 +184,7 @@ export const BukuJurnalPage = () => {
                        <div className="p-3 bg-white/5 rounded-2xl group-hover:bg-[#E3242B] transition-all"><X size={20}/></div> Tutup Jendela
                     </button>
                     <div className="aspect-[3/4.5] w-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-gray-900">
-                        <img src={getStorageUrl(selected.gambar)} className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[1500ms]" alt="Visual" />
+                        <img src={selected.gambar_url} className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[1500ms]" alt="Visual" />
                     </div>
                 </div>
                 <div className="z-10 opacity-20 text-left"><p className="text-[11px] font-black text-gray-500 uppercase tracking-[0.8em]">Lab DDP IPB</p></div>

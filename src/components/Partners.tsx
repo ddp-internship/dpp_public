@@ -89,7 +89,7 @@ export const Partners = () => {
                   className="bg-white border border-gray-50 p-6 rounded-[2rem] flex flex-col items-center justify-center h-40 group hover:border-[#E3242B]/30 hover:shadow-xl transition-all duration-500"
                 >
                   <img 
-                    src={getStorageUrl(mitra.gambar)} 
+                    src={mitra.gambar_url} 
                     alt={mitra.nama_mitra}
                     className="max-h-16 max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />

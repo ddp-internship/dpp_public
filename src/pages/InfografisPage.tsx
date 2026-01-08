@@ -140,7 +140,7 @@ export const InfografisPage = () => {
                 >
                   {/* Visual Header - Smaller Aspect Ratio */}
                   <div className="relative aspect-[4/5] overflow-hidden bg-gray-50 border-b border-gray-50">
-                    <img src={getStorageUrl(item.gambar)} className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" alt={item.judul} />
+                    <img src={item.gambar_url} className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" alt={item.judul} />
                     <div className="absolute inset-0 bg-[#111827]/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[1px]">
                         <div className="bg-white text-[#111827] w-12 h-12 rounded-2xl flex items-center justify-center shadow-2xl scale-75 group-hover:scale-100 transition-all duration-500">
                            <Maximize2 size={20}/>
@@ -198,7 +198,7 @@ export const InfografisPage = () => {
             <div className="h-[45%] md:h-full md:flex-1 bg-[#0a0f1a] relative flex items-center justify-center group/slider overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
                <img 
                   key={currentSlide}
-                  src={getStorageUrl(selectedItem?.gambar[currentSlide])} 
+                  src={selectedItem?.gambar_url[currentSlide]} 
                   className="max-w-[95%] max-h-[95%] object-contain animate-in fade-in slide-in-from-right-4 duration-700" 
                   alt="Slide" 
                />

@@ -82,7 +82,7 @@ export const Gallery = () => {
               `}
             >
               <img 
-                src={getStorageUrl(img.gambar)} 
+                src={img.gambar_url} 
                 className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
                 alt={img.nama_kegiatan}
               />
@@ -126,7 +126,7 @@ export const Gallery = () => {
                        <div className="p-3 bg-white/5 rounded-2xl group-hover:bg-[#E3242B] transition-all"><X size={24}/></div> Tutup Arsip
                     </button>
                     <div className="aspect-[4/5] w-full rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.5)] bg-gray-900">
-                        <img src={getStorageUrl(selectedImgObj.gambar)} className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[1500ms]" alt="Visual" />
+                        <img src={selectedImgObj.gambar_url} className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[1500ms]" alt="Visual" />
                     </div>
                 </div>
                 <div className="z-10 opacity-20"><p className="text-[11px] font-black text-gray-500 uppercase tracking-[0.8em]">Lab DDP IPB</p></div>
@@ -137,7 +137,7 @@ export const Gallery = () => {
                 
                 {/* Visual Cover di Paling Atas (Mobile Only - Kompas Style) */}
                 <div className="w-full aspect-video md:hidden shrink-0">
-                    <img src={getStorageUrl(selectedImgObj.gambar)} className="w-full h-full object-cover" alt="Hero" />
+                    <img src={selectedImgObj.gambar_url} className="w-full h-full object-cover" alt="Hero" />
                 </div>
 
                 {/* Body Konten */}

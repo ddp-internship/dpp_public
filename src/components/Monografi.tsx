@@ -34,6 +34,8 @@ export const Monografi = () => {
     setShowModal(true);
   };
 
+console.log(items);
+
   const handleProcessDownload = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -90,7 +92,7 @@ export const Monografi = () => {
             <div key={item.id} className="group cursor-pointer flex flex-col h-full" onClick={() => handleOpenForm(item)}>
               <div className="relative aspect-[3/4.2] rounded-[2rem] overflow-hidden shadow-lg group-hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-all duration-700 border-4 border-white bg-gray-50">
                 <img 
-                    src={getStorageUrl(item.gambar)} 
+                    src={item.gambar_url} 
                     alt={item.desa} 
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" 
                 />

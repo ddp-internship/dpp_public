@@ -108,7 +108,7 @@ export const Infografis = () => {
             >
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-gray-50 border border-gray-50 mb-6 shrink-0">
                 <img
-                  src={getStorageUrl(item.gambar[0])}
+                  src={Array.isArray(item.gambar_url) ? item.gambar_url[0] : item.gambar_url}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]"
                   alt={item.judul}
                 />
@@ -153,7 +153,7 @@ export const Infografis = () => {
             <div className="h-[45%] lg:h-full lg:flex-1 bg-[#0a0f1a] relative flex items-center justify-center group/slider overflow-hidden border-b lg:border-b-0 lg:border-r border-white/5">
                <img 
                   key={modalIdx}
-                  src={getStorageUrl(selectedAlbum.gambar[modalIdx])} 
+                  src={selectedAlbum.gambar_url[modalIdx]} 
                   className="max-w-[95%] max-h-[90%] object-contain animate-in fade-in slide-in-from-right-4 duration-700" 
                   alt="Slide" 
                />

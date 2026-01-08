@@ -4,6 +4,7 @@ import axios from "axios";
 const ORIGIN = (import.meta.env.VITE_API_URL || "http://localhost:8085").replace(/\/+$/, "");
 const BASE_URL = `${ORIGIN}/api`;
 
+
 export const api = axios.create({
   baseURL: BASE_URL,
   headers: {

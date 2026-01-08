@@ -112,7 +112,7 @@ export const NewsPage = () => {
                         className="group cursor-pointer grid lg:grid-cols-12 gap-8 md:gap-16 items-start border-b border-gray-100 pb-16"
                     >
                         <div className="lg:col-span-8 relative rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl bg-gray-50 aspect-video lg:aspect-auto lg:h-[550px] border-4 border-white">
-                            <img src={getStorageUrl(items[0].gambar)} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" alt="Main" />
+                            <img src={items[0].gambar_url} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" alt="Main" />
                             <div className="absolute top-6 left-6">
                                 <span className="bg-[#E3242B] text-white px-5 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-xl">UTAMA</span>
                             </div>
@@ -139,7 +139,7 @@ export const NewsPage = () => {
                     {items.slice(page === 1 ? 1 : 0).map((news) => (
                         <div key={news.id} onClick={() => setSelectedNews(news)} className="group cursor-pointer flex flex-col space-y-6 border-b md:border-none border-gray-50 pb-10 md:pb-0">
                             <div className="relative aspect-video md:aspect-[4/3] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-gray-50 shadow-lg group-hover:shadow-2xl transition-all duration-700">
-                                <img src={getStorageUrl(news.gambar)} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
+                                <img src={news.gambar_url} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
                                 <div className="absolute top-4 left-4">
                                     <span className="bg-white/90 backdrop-blur-md text-[#111827] px-4 py-1.5 rounded-xl text-[8px] font-black uppercase tracking-widest">{news.tanggal}</span>
                                 </div>
@@ -189,7 +189,7 @@ export const NewsPage = () => {
             {/* AREA UTAMA PEMBACA (SCROLLABLE) */}
             <div className="flex-1 overflow-y-auto custom-scrollbar bg-white flex flex-col h-full">
                 <div className="w-full aspect-video md:hidden shrink-0">
-                    <img src={getStorageUrl(selectedNews.gambar)} className="w-full h-full object-cover" alt="Cover" />
+                    <img src={selectedNews.gambar_url} className="w-full h-full object-cover" alt="Cover" />
                 </div>
 
                 <div className="px-6 md:px-24 py-10 md:py-20 space-y-10">
@@ -240,7 +240,7 @@ export const NewsPage = () => {
                        <div className="p-3 bg-white/5 rounded-2xl group-hover:bg-[#E3242B] transition-all"><X size={24}/></div> Tutup Jendela
                     </button>
                     <div className="aspect-[3/4.5] w-full rounded-[3.5rem] overflow-hidden border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)]">
-                        <img src={getStorageUrl(selectedNews.gambar)} className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[2000ms]" alt="Sidebar" />
+                        <img src={selectedNews.gambar_url} className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[2000ms]" alt="Sidebar" />
                     </div>
                 </div>
                 <div className="z-10 opacity-20">

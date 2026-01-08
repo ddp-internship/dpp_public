@@ -81,7 +81,7 @@ export const News = () => {
           <div className="lg:col-span-8 space-y-12">
             {/* Headline Card */}
             <div onClick={() => setSelectedNews(items[0])} className="group cursor-pointer relative rounded-[3rem] overflow-hidden shadow-2xl transition-all duration-1000 h-[450px] border-4 border-white bg-gray-50">
-              <img src={getStorageUrl(items[0].gambar)} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" alt="Headline" />
+              <img src={items[0].gambar_url} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" alt="Headline" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/20 to-transparent"></div>
               <div className="absolute bottom-10 left-10 right-10 space-y-4 text-left">
                 <span className="bg-[#E3242B] text-white px-5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-xl">HEADLINE</span>
@@ -95,7 +95,7 @@ export const News = () => {
                 {items.slice(1, 3).map((news) => (
                     <div key={news.id} onClick={() => setSelectedNews(news)} className="group cursor-pointer space-y-6 text-left">
                         <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white bg-gray-50">
-                            <img src={getStorageUrl(news.gambar)} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
+                            <img src={news.gambar_url} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
                         </div>
                         <div className="px-2 space-y-3">
                             <h4 className="text-lg font-black text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight uppercase tracking-tighter line-clamp-2">
@@ -165,7 +165,7 @@ export const News = () => {
                     
                     {/* Editorial Hero Image */}
                     <div className="w-full aspect-video md:aspect-[21/9] overflow-hidden relative border-b border-gray-100">
-                        <img src={getStorageUrl(selectedNews.gambar)} className="w-full h-full object-cover" alt="Hero" />
+                        <img src={selectedNews.gambar_url} className="w-full h-full object-cover" alt="Hero" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
 

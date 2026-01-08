@@ -109,7 +109,7 @@ export const GalleryPage = () => {
                 {items.map((img) => (
                   <div key={img.id} className="group cursor-pointer space-y-6" onClick={() => setSelectedImg(img)}>
                     <div className="relative aspect-[4/5.5] rounded-[2.5rem] overflow-hidden bg-gray-100 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700 group-hover:-translate-y-3">
-                      <img src={getStorageUrl(img.gambar)} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" alt={img.nama_kegiatan} />
+                      <img src={img.gambar_url} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" alt={img.nama_kegiatan} />
                       <div className="absolute inset-0 bg-[#111827]/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px] flex items-center justify-center">
                          <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-[#111827] shadow-2xl scale-75 group-hover:scale-100 transition-all duration-500">
                             <Maximize2 size={20} />
@@ -154,7 +154,7 @@ export const GalleryPage = () => {
             
             {/* SISI KIRI: GAMBAR (STATIS) */}
             <div className="h-[40%] md:h-full md:flex-1 bg-[#111827] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-gray-100 relative">
-                <img src={getStorageUrl(selectedImg.gambar)} className="w-full h-full object-cover" alt="Full" />
+                <img src={selectedImg.gambar_url} className="w-full h-full object-cover" alt="Full" />
                 <div className="absolute top-8 left-8">
                     <div className="px-5 py-2 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                         <Camera size={14} className="text-[#E3242B]" /> Verified Photo
