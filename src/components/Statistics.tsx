@@ -91,10 +91,10 @@ export const Statistics = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Data Analytics</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Analitik Data</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Capaian <span className="text-[#E3242B]">Pendataan.</span>
+              Capaian <span className="text-[#E3242B]">Pendataan</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Bekerja sama dengan masyarakat di <span className="text-[#111827] font-black">{totalWilayah}</span> Desa & Kelurahan seluruh Indonesia.
@@ -153,7 +153,7 @@ export const Statistics = () => {
                     <div className="space-y-10">
                         <div className="space-y-3">
                             <h4 className="font-black text-2xl uppercase tracking-tighter">Rasio Demografi</h4>
-                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] opacity-60">Gender Distribution Control</p>
+                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] opacity-60">Distribusi Gender</p>
                         </div>
                         
                         <div className="space-y-8">
@@ -195,7 +195,7 @@ export const Statistics = () => {
                             <h5 className="text-5xl font-black tracking-tighter">
                                 {jmlPerempuan > 0 ? ((jmlLaki/jmlPerempuan) * 100).toFixed(1) : "0.0"}
                             </h5>
-                            <p className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.4em]">Gender Index</p>
+                            <p className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.4em]">Indeks Gender</p>
                         </div>
                         <p className="text-[9px] text-gray-500 uppercase font-bold tracking-widest px-4">Rasio Jenis Kelamin per 100 Perempuan</p>
                     </div>
@@ -214,14 +214,14 @@ export const Statistics = () => {
                 </div>
                 
                 <div className="space-y-4">
-                    <h4 className="text-2xl font-black text-[#111827] uppercase tracking-tighter leading-tight">Data <br /> Sinkron.</h4>
+                    <h4 className="text-2xl font-black text-[#111827] uppercase tracking-tighter leading-tight">Data <br /> Sinkron</h4>
                     <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed px-4">
                         Informasi dimutakhirkan secara otomatis melalui integrasi Lab DDP IPB University.
                     </p>
                 </div>
 
                 <div className="flex items-center gap-2 text-[#111827] font-black text-[9px] uppercase tracking-[0.4em] pt-6 border-t border-gray-200 w-full justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Live Link Active
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Koneksi Aktif
                 </div>
             </div>
         </div>

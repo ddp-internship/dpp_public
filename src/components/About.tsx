@@ -15,10 +15,10 @@ export const About = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Institutional Profile</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Profil Lembaga</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Membangun <span className="text-[#E3242B]">Kedaulatan Data.</span>
+              Membangun <span className="text-[#E3242B]">Kedaulatan Data</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Inovasi metodologi untuk menyajikan basis Big Data Indonesia dari tingkat tapak.
@@ -26,7 +26,7 @@ export const About = () => {
           </div>
           <div className="hidden lg:flex items-center gap-3 text-gray-300">
              <ShieldCheck size={20} />
-             <span className="text-[10px] font-black uppercase tracking-widest">Verified Methodology</span>
+             <span className="text-[10px] font-black uppercase tracking-widest">Metodologi Terverifikasi</span>
           </div>
         </div>
 

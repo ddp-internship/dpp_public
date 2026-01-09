@@ -145,14 +145,14 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
       <div className="absolute bottom-12 right-12 hidden lg:flex items-center gap-10">
           <div className="flex flex-col items-end space-y-2">
               <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#E3242B] animate-pulse flex items-center gap-2">
-                <Zap size={10} className="fill-[#E3242B]" /> System Active
+                <Zap size={10} className="fill-[#E3242B]" /> Status: Aktif
               </span>
               <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Kedaulatan Digital Indonesia</span>
           </div>
           <div className="h-12 w-px bg-white/10"></div>
           <div className="flex flex-col items-end space-y-1">
               <span className="text-[11px] font-black text-white uppercase tracking-[0.2em]">JAN 2026</span>
-              <span className="text-[8px] font-bold text-gray-600 uppercase tracking-[0.3em]">Master Release</span>
+              <span className="text-[8px] font-bold text-gray-600 uppercase tracking-[0.3em]">Versi Utama</span>
           </div>
       </div>
     </section>

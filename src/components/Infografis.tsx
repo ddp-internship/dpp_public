@@ -83,10 +83,10 @@ export const Infografis = () => {
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-3">
                <div className="p-1.5 bg-[#E3242B]/10 rounded-lg text-[#E3242B]"><FileCheck size={16}/></div>
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Arsip Visual: {totalCount} Dokumen</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Infografis: {totalCount} Dokumen</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Informasi <span className="text-[#E3242B]">Publik.</span>
+              Katalog <span className="text-[#E3242B]">Infografis</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Interpretasi data kompleks ke dalam sajian visual yang presisi dan transparan.
@@ -94,7 +94,7 @@ export const Infografis = () => {
           </div>
           
           <Link to="/infografis" className="group flex items-center gap-4 bg-[#111827] text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-[#E3242B] transition-all shadow-xl active:scale-95">
-            Lihat Semua <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+            Lihat Semua Infografis <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
           </Link>
         </div>
 

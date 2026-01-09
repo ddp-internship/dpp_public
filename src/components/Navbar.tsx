@@ -68,9 +68,9 @@ export const Navbar = () => {
 
         {/* --- DESKTOP MENU --- */}
         <div className={`hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-widest items-center ${isScrolled || location.pathname !== '/' ? 'text-gray-600' : 'text-gray-200'}`}>
-          <button onClick={() => handleNavigation('hero')} className="hover:text-[#E3242B] transition-colors uppercase">HOME</button>
-          <button onClick={() => handleNavigation('about')} className="hover:text-[#E3242B] transition-colors uppercase">ABOUT</button>
-          <button onClick={() => handleNavigation('features')} className="hover:text-[#E3242B] transition-colors uppercase">FEATURES</button>
+          <button onClick={() => handleNavigation('hero')} className="hover:text-[#E3242B] transition-colors uppercase">BERANDA</button>
+          <button onClick={() => handleNavigation('about')} className="hover:text-[#E3242B] transition-colors uppercase">TENTANG KAMI</button>
+          <button onClick={() => handleNavigation('features')} className="hover:text-[#E3242B] transition-colors uppercase">FITUR</button>
           
           {/* --- DROP DOWN PRODUCT & PUBLIKASI --- */}
           <div 
@@ -79,7 +79,7 @@ export const Navbar = () => {
             onMouseLeave={() => setActiveDropdown(null)}
           >
             <button className={`flex items-center gap-1 hover:text-[#E3242B] transition-colors uppercase ${['monografi', 'news', 'infografis'].includes(activeDropdown || '') ? 'text-[#E3242B]' : ''}`}>
-              PRODUCT & PUBLIKASI <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'product' ? 'rotate-180' : ''}`} />
+              PRODUK & PUBLIKASI <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'product' ? 'rotate-180' : ''}`} />
             </button>
             
             <div className={`absolute top-full -left-10 w-[350px] bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-6 text-[#111827] transition-all duration-300 origin-top border border-gray-100 ${
@@ -111,7 +111,7 @@ export const Navbar = () => {
                       <div className="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-all">
                        <FileText size={16} />
                       </div>
-                  <span className="font-black text-[10px] uppercase tracking-widest text-[#111827] group-hover:text-[#E3242B]">
+                  <span className="font-black text-[10px] uppercase tracking-widest text-[#111827]">
                     JURNAL PRESISI </span>
                     </Link>
 
@@ -126,22 +126,22 @@ export const Navbar = () => {
                 </button>
 
                 <div className="my-3 border-t border-gray-100"></div>
-                <p className="px-4 py-2 text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] opacity-40">DIGITAL PLATFORM</p>
+                <p className="px-4 py-2 text-[9px] font-black text-gray-400 uppercase tracking-[0.3em] opacity-40">APLIKASI KAMI</p>
 
                 <div className="grid grid-cols-1 gap-1">
                     <a href="https://webgis.desapresisi.id" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 hover:bg-blue-600 hover:text-white rounded-2xl transition-all group">
                         <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 group-hover:bg-white/20 group-hover:text-white transition-all"><Globe size={16} /></div>
                         <span className="font-black text-[10px] uppercase tracking-widest">WEBGIS DDP</span>
                     </a>
-                    <a href="#" className="flex items-center gap-3 p-3 hover:bg-emerald-600 hover:text-white rounded-2xl transition-all group">
+                    <a href="https://play.google.com/store/apps/details?id=id.desapresisi.merdesasensus&hl=en" className="flex items-center gap-3 p-3 hover:bg-emerald-600 hover:text-white rounded-2xl transition-all group">
                         <div className="w-8 h-8 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 group-hover:bg-white/20 group-hover:text-white transition-all"><AppWindow size={16} /></div>
                         <span className="font-black text-[10px] uppercase tracking-widest">MERDESA SENSUS</span>
                     </a>
-                    <a href="#" className="flex items-center gap-3 p-3 hover:bg-orange-600 hover:text-white rounded-2xl transition-all group">
+                    <a href="https://play.google.com/store/search?q=merdesa%20maps&c=apps&hl=en" className="flex items-center gap-3 p-3 hover:bg-orange-600 hover:text-white rounded-2xl transition-all group">
                         <div className="w-8 h-8 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 group-hover:bg-white/20 group-hover:text-white transition-all"><MapPin size={16} /></div>
                         <span className="font-black text-[10px] uppercase tracking-widest">MERDESA MAPS</span>
                     </a>
-                    <a href="#" className="flex items-center gap-3 p-3 hover:bg-red-600 hover:text-white rounded-2xl transition-all group">
+                    <a href="https://monev.desapresisi.id/signin" className="flex items-center gap-3 p-3 hover:bg-red-600 hover:text-white rounded-2xl transition-all group">
                         <div className="w-8 h-8 bg-red-50 rounded-lg flex items-center justify-center text-red-600 group-hover:bg-white/20 group-hover:text-white transition-all"><Activity size={16} /></div>
                         <span className="font-black text-[10px] uppercase tracking-widest">MERDESA MONEV</span>
                     </a>
@@ -150,7 +150,7 @@ export const Navbar = () => {
             </div>
           </div>
 
-          <button onClick={() => handleNavigation('gallery')} className="hover:text-[#E3242B] transition-colors uppercase">GALLERY</button>
+          <button onClick={() => handleNavigation('gallery')} className="hover:text-[#E3242B] transition-colors uppercase">GALERI</button>
           <button onClick={() => handleNavigation('testimonials')} className="hover:text-[#E3242B] transition-colors uppercase">TESTIMONI</button>
         </div>
 

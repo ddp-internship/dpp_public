@@ -61,10 +61,10 @@ export const News = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Media Center</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Pusat Media</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Pusat <span className="text-[#E3242B]">Warta.</span>
+              Pusat <span className="text-[#E3242B]">Warta</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Publikasi resmi dan kabar terkini mengenai transformasi data desa di Indonesia.
@@ -72,7 +72,7 @@ export const News = () => {
           </div>
           
           <Link to="/news" className="group flex items-center gap-3 px-8 py-4 bg-[#111827] text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-[#E3242B] transition-all duration-500 shadow-xl shadow-navy/20 active:scale-95">
-            Arsip Publikasi <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+           Jelajahi Arsip Publikasi <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -84,7 +84,7 @@ export const News = () => {
               <img src={items[0].gambar_url} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" alt="Headline" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/20 to-transparent"></div>
               <div className="absolute bottom-10 left-10 right-10 space-y-4 text-left">
-                <span className="bg-[#E3242B] text-white px-5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-xl">HEADLINE</span>
+                <span className="bg-[#E3242B] text-white px-5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-xl">BERITA TERKINI</span>
                 <h3 className="text-2xl md:text-3xl font-black text-white leading-tight uppercase tracking-tighter group-hover:text-red-100 transition-colors line-clamp-2">
                   {items[0].judul_artikel}
                 </h3>

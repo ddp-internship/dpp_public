@@ -71,10 +71,10 @@ console.log(items);
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Digital Repository</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Repositori Digital</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Katalog <span className="text-[#E3242B]">Monografi.</span>
+              Katalog <span className="text-[#E3242B]">Monografi</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Arsip data profil desa terverifikasi untuk pembangunan berbasis fakta.
@@ -82,7 +82,7 @@ console.log(items);
           </div>
           
           <Link to="/monografi" className="group flex items-center gap-4 bg-[#111827] text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-[#E3242B] transition-all shadow-xl active:scale-95">
-            Portal Utama <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+            Lihat Semua Monografi <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
           </Link>
         </div>
 
@@ -139,12 +139,12 @@ console.log(items);
                     <div className="space-y-1.5">
                         <label className="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Nama Lengkap *</label>
                         <input type="text" required className="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-4 focus:ring-red-50 text-sm font-bold text-[#111827] outline-none transition-all" 
-                        onChange={(e) => setVisitor({...visitor, nama: e.target.value})} placeholder="Abdullah..." />
+                        onChange={(e) => setVisitor({...visitor, nama: e.target.value})} placeholder="Nama..." />
                     </div>
                     <div className="space-y-1.5">
                         <label className="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">E-mail Aktif *</label>
                         <input type="email" required className="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-4 focus:ring-red-50 text-sm font-bold text-[#111827] outline-none transition-all" 
-                        onChange={(e) => setVisitor({...visitor, email: e.target.value})} placeholder="name@email.com" />
+                        onChange={(e) => setVisitor({...visitor, email: e.target.value})} placeholder="nama@email.com" />
                     </div>
                     <div className="space-y-1.5">
                         <label className="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Asal Instansi / Lembaga *</label>

@@ -11,7 +11,7 @@ interface AppItem {
 const apps: AppItem[] = [
   { 
     name: 'Merdesa Sensus', 
-    desc: 'Aplikasi sensus keluarga partisipatif terintegrasi data spasial untuk akurasi profil penduduk.',
+    desc: 'Aplikasi sensus keluarga partisipatif terintegrasi data spasial untuk profil penduduk.',
     img: '/img/apps/logo-sensus.png', 
     tag: 'Sensus Digital'
   },
@@ -25,7 +25,7 @@ const apps: AppItem[] = [
     name: 'Merdesa Monev', 
     desc: 'Sistem monitoring untuk memantau progres dan kualitas hasil pendataan lapangan real-time.',
     img: '/img/apps/logo-monev.png', 
-    tag: 'Monitoring'
+    tag: 'Pemantauan'
   },
   { 
     name: 'Merdesa WebGIS', 
@@ -44,10 +44,10 @@ export const Features = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-20 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Software Suite</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Rangkaian Perangkat Lunak</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Ekosistem <span className="text-[#E3242B]">Aplikasi.</span>
+              Ekosistem <span className="text-[#E3242B]">Aplikasi</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Rangkaian alat digital terintegrasi untuk kedaulatan data desa Indonesia.
@@ -55,7 +55,7 @@ export const Features = () => {
           </div>
           <div className="hidden lg:flex items-center gap-3 text-gray-300">
              <ShieldCheck size={20} />
-             <span className="text-[10px] font-black uppercase tracking-widest">Enterprise Security Verified</span>
+             <span className="text-[10px] font-black uppercase tracking-widest">Keamanan Terverifikasi</span>
           </div>
         </div>
 
@@ -90,7 +90,7 @@ export const Features = () => {
 
                    <div className="pt-6 w-full flex justify-center lg:justify-start">
                       <div className="flex items-center gap-2 text-[9px] font-black text-[#E3242B] opacity-40 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 uppercase tracking-widest">
-                         Review Module <ArrowUpRight size={12} />
+                         Lihat Detail <ArrowUpRight size={12} />
                       </div>
                    </div>
                 </div>
@@ -110,7 +110,7 @@ export const Features = () => {
                             <div className="w-2 h-2 rounded-full bg-red-500/40"></div>
                             <div className="w-2 h-2 rounded-full bg-emerald-500/40"></div>
                         </div>
-                        <span className="text-[8px] font-black text-gray-500 tracking-widest uppercase">System Interface</span>
+                        <span className="text-[8px] font-black text-gray-500 tracking-widest uppercase">Antarmuka Sistem</span>
                     </div>
 
                     <img 
@@ -127,7 +127,7 @@ export const Features = () => {
                             </div>
                             <div className="text-left">
                                 <p className="text-[8px] font-black text-gray-500 uppercase tracking-widest leading-none">Status</p>
-                                <p className="text-[10px] font-bold text-white mt-1">Ecosystem Online</p>
+                                <p className="text-[10px] font-bold text-white mt-1">Sistem Aktif</p>
                             </div>
                         </div>
                         <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_15px_#10b981]"></div>

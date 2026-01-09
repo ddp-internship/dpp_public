@@ -67,10 +67,10 @@ export const Testimonials = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-20 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Stakeholder Appreciation</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Ulasan Para Tokoh</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Apresiasi <span className="text-[#E3242B]">Tokoh.</span>
+              Apresiasi <span className="text-[#E3242B]">Tokoh</span>
             </h2>
             {/* COUNTER DINAMIS (RAMAH MASYARAKAT) */}
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed mt-2">
@@ -171,7 +171,7 @@ export const Testimonials = () => {
                 </div>
                 <div className="space-y-1">
                     <h4 className="text-white text-xl md:text-2xl font-black uppercase tracking-tighter">
-                        Portal Aspirasi Tokoh.
+                        Portal Aspirasi Tokoh
                     </h4>
                     <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
                         Kumpulan testimoni otentik dari seluruh wilayah dampingan DDP.

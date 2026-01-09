@@ -46,10 +46,10 @@ export const Partners = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Official Networking</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Jejaring Resmi</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase">
-              Jejaring <span className="text-[#E3242B]">Kerjasama.</span>
+              Jejaring <span className="text-[#E3242B]">Kerjasama</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Bekerja bersama membangun kedaulatan data desa di seluruh Indonesia.
@@ -121,10 +121,10 @@ export const Partners = () => {
                 </div>
                 <div className="space-y-1">
                     <h4 className="text-white text-xl md:text-2xl font-black uppercase tracking-tighter">
-                        Wujudkan Satu Data Indonesia.
+                        Wujudkan Satu Data Indonesia
                     </h4>
                     <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-                        Telah dipercaya oleh <span className="text-white">{allMitra.length}+ Instansi Pemerintah & Universitas</span>
+                        Telah dipercaya oleh <span className="text-white">{allMitra.length}+ Instansi Pemerintah dan Universitas</span>
                     </p>
                 </div>
             </div>

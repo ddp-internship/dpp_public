@@ -6,7 +6,7 @@ export const FloatingContact = () => {
 
   const contact = {
     wa: "https://wa.me/6281356566546?text=Halo%20Admin%20DDP%2C%20saya%20ingin%20berkonsultasi.",
-    email: "abdullahhayad@gmail.com",
+    email: "datadesapresisi@gmail.com",
     maps: "https://maps.app.goo.gl/TveY62LFYEcxUGLG8"
   };
 
@@ -50,7 +50,7 @@ export const FloatingContact = () => {
       {/* Badge Info Kecil */}
       {!isOpen && (
         <div className="absolute -top-2 -left-2 bg-[#111827] text-white text-[8px] font-black px-2 py-1 rounded-lg uppercase tracking-tighter shadow-lg border border-white/10">
-            Help Center
+            Pusat Bantuan
         </div>
       )}
     </div>

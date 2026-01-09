@@ -38,7 +38,7 @@ export const Footer = () => {
           {/* --- KOLOM 2: MOBILE APPS (LENGKAP) --- */}
           <div>
             <h4 className="text-[#E3242B] font-black text-xs uppercase tracking-[0.3em] mb-10 flex items-center gap-2">
-               <span className="w-1.5 h-1.5 bg-[#E3242B] rounded-full"></span> Mobile Apps
+               <span className="w-1.5 h-1.5 bg-[#E3242B] rounded-full"></span> Aplikasi Kami
             </h4>
             <ul className="space-y-4 text-gray-400 text-sm font-bold">
               <li>
@@ -46,11 +46,15 @@ export const Footer = () => {
                   <ChevronRight size={14} className="text-[#E3242B] group-hover:translate-x-1 transition-transform" /> WebGIS DDP
                 </a>
               </li>
-              <li className="flex items-center gap-2 hover:text-white cursor-pointer transition-all group">
-                <ChevronRight size={14} className="text-[#E3242B] group-hover:translate-x-1 transition-transform" /> Merdesa Sensus
+              <li>
+                <a href="https://play.google.com/store/apps/details?id=id.desapresisi.merdesasensus&hl=en" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-all group">
+                  <ChevronRight size={14} className="text-[#E3242B] group-hover:translate-x-1 transition-transform" /> Merdesa Sensus
+                </a>
               </li>
-              <li className="flex items-center gap-2 hover:text-white cursor-pointer transition-all group">
-                <ChevronRight size={14} className="text-[#E3242B] group-hover:translate-x-1 transition-transform" /> Merdesa Maps
+              <li>
+                <a href="https://play.google.com/store/search?q=merdesa%20maps&c=apps&hl=en" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-all group">
+                  <ChevronRight size={14} className="text-[#E3242B] group-hover:translate-x-1 transition-transform" /> Merdesa Maps
+                </a>
               </li>
               <li>
                 <a href="https://monev.desapresisi.id/signin" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-all group">
@@ -63,7 +67,7 @@ export const Footer = () => {
           {/* --- KOLOM 3: PRODUCT (LENGKAP) --- */}
           <div>
             <h4 className="text-[#E3242B] font-black text-xs uppercase tracking-[0.3em] mb-10 flex items-center gap-2">
-               <span className="w-1.5 h-1.5 bg-[#E3242B] rounded-full"></span> Information
+               <span className="w-1.5 h-1.5 bg-[#E3242B] rounded-full"></span> Informasi
             </h4>
             <ul className="space-y-4 text-gray-400 text-sm font-bold">
               <li className="flex items-center gap-2 hover:text-white cursor-pointer transition-all group">
@@ -81,7 +85,7 @@ export const Footer = () => {
           {/* --- KOLOM 4: FOLLOW US & CONTACT --- */}
           <div>
             <h4 className="text-[#E3242B] font-black text-xs uppercase tracking-[0.3em] mb-10 flex items-center gap-2">
-               <span className="w-1.5 h-1.5 bg-[#E3242B] rounded-full"></span> Connect
+               <span className="w-1.5 h-1.5 bg-[#E3242B] rounded-full"></span> Hubungi Kami
             </h4>
             <div className="flex gap-4 mb-10">
               <a href="https://www.instagram.com/desapresisi.ipb" target="_blank" rel="noreferrer" className="w-11 h-11 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gray-400 hover:bg-[#E4405F] hover:text-white transition-all shadow-xl group">
@@ -90,7 +94,7 @@ export const Footer = () => {
               <a href="https://www.youtube.com/@desapresisiipbofficial9102" target="_blank" rel="noreferrer" className="w-11 h-11 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gray-400 hover:bg-[#FF0000] hover:text-white transition-all shadow-xl group">
                 <Youtube size={20} className="group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://wa.me/081356566546" target="_blank" rel="noreferrer" className="w-11 h-11 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gray-400 hover:bg-[#25D366] hover:text-white transition-all shadow-xl group">
+              <a href="https://wa.me/6281356566546?text=Halo%20Admin%20DDP%2C%20saya%20ingin%20berkonsultasi." target="_blank" rel="noreferrer" className="w-11 h-11 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gray-400 hover:bg-[#25D366] hover:text-white transition-all shadow-xl group">
                 <MessageCircle size={20} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>
@@ -111,7 +115,7 @@ export const Footer = () => {
         {/* BOTTOM FOOTER */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black text-gray-600 uppercase tracking-[0.4em]">
           <div className="flex items-center gap-2">
-            <p>© {currentYear} OFFICIAL DATA DESA PRESISI.</p>
+            <p>© {currentYear} DATA DESA PRESISI.</p>
           </div>
           <div className="flex items-center gap-4">
              <span className="text-[#E3242B] tracking-[0.2em]">Solusi Satu Data Indonesia!</span>

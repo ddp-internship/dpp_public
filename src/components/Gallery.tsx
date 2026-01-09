@@ -51,10 +51,10 @@ export const Gallery = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Documentation</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Arsip Lapangan</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
-              Jejak <span className="text-[#E3242B]">Bakti.</span>
+              Jejak <span className="text-[#E3242B]">Bakti</span>
             </h2>
             <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
               Arsip visual transformasi digital dan pengabdian data desa presisi di lapangan.
@@ -65,7 +65,7 @@ export const Gallery = () => {
             to="/gallery" 
             className="group flex items-center gap-3 px-8 py-4 bg-[#111827] text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-[#E3242B] transition-all duration-500 shadow-xl shadow-navy/20 active:scale-95"
           >
-            Galeri Lengkap <Maximize2 size={14} className="group-hover:rotate-45 transition-transform" />
+            Lihat Galeri Lengkap <Maximize2 size={14} className="group-hover:rotate-45 transition-transform" />
           </Link>
         </div>
 
@@ -90,7 +90,7 @@ export const Gallery = () => {
                   <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700 space-y-2">
                     <div className="flex items-center gap-2 text-[#E3242B]">
                         <Zap size={10} className="fill-[#E3242B]" />
-                        <span className="text-[8px] font-black uppercase tracking-widest text-white/70">Verified</span>
+                        <span className="text-[8px] font-black uppercase tracking-widest text-white/70">Terverifikasi</span>
                     </div>
                     <h4 className="text-white font-black uppercase text-sm leading-tight tracking-tighter line-clamp-1">{img.nama_kegiatan}</h4>
                   </div>
