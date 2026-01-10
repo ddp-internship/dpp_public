@@ -99,18 +99,18 @@ export const InfografisPage = () => {
           <div className="space-y-10 animate-in fade-in slide-in-from-bottom-5 duration-1000">
             <div className="inline-flex items-center gap-4 px-5 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md mx-auto">
                <BarChart3 size={14} className="text-[#E3242B]" />
-               <span className="text-[9px] md:text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">Visual Analytics Archive</span>
+               <span className="text-[9px] md:text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">Arsip Analitik Visual</span>
             </div>
             
             <div className="relative">
                 {/* Watermark Centered */}
                 <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/[0.02] text-[6rem] md:text-[12rem] font-black uppercase tracking-tighter pointer-events-none select-none hidden lg:block w-full">
-                  ANALYTICS
+                  presisi
                 </h2>
                 <h1 className="text-5xl md:text-[90px] font-black text-white uppercase tracking-tighter leading-[0.85] relative z-10">
                   Sajian <br /> 
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E3242B] to-[#ff4d4d]">
-                      Infografis.
+                      Infografis
                   </span>
                 </h1>
             </div>

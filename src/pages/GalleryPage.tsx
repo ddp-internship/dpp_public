@@ -52,7 +52,7 @@ export const GalleryPage = () => {
               {/* Badge Dinamis */}
               <div className="flex items-center gap-4 animate-in fade-in slide-in-from-left-10 duration-1000">
                 <div className="px-5 py-2 bg-[#E3242B] text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-tr-2xl rounded-bl-2xl shadow-lg shadow-red-900/40">
-                  Visual Repository
+                  Galeri Dokumentasi
                 </div>
                 <div className="h-px w-20 bg-white/20"></div>
               </div>
@@ -61,14 +61,14 @@ export const GalleryPage = () => {
               <div className="relative space-y-2 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
                   {/* Judul Lapis 1 (Besar & Transparan/Outline) */}
                   <h2 className="absolute -top-16 left-0 text-white/[0.03] text-[10rem] font-black uppercase tracking-tighter pointer-events-none select-none hidden lg:block">
-                    ARCHIVE
+                    PRESISI
                   </h2>
                   
                   {/* Judul Lapis 2 (Utama) */}
                   <h1 className="text-7xl md:text-[110px] font-black text-white uppercase tracking-tighter leading-[0.8] relative z-10">
                     Arsip <br /> 
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E3242B] to-[#ff4d4d]">
-                        Visual.
+                        Visual
                     </span>
                   </h1>
               </div>

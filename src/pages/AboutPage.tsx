@@ -37,13 +37,13 @@ export const AboutPage = () => {
             <div className="flex-1 space-y-12 animate-in fade-in slide-in-from-left-10 duration-1000">
                 <div className="inline-flex items-center gap-4">
                     <div className="w-10 h-1 bg-[#E3242B]"></div>
-                    <span className="text-[10px] font-black text-white uppercase tracking-[0.5em]">The Masterpiece of DDP</span>
+                    <span className="text-[10px] font-black text-white uppercase tracking-[0.5em]">Inovasi DDP</span>
                 </div>
                 
                 <h1 className="text-5xl md:text-9xl font-black text-white uppercase tracking-tighter leading-[0.8] mb-4 relative">
                    Jejak <br /> 
                    <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#E3242B] to-red-800">
-                     Langkah.
+                     Langkah
                    </span>
                 </h1>
 
@@ -67,7 +67,7 @@ export const AboutPage = () => {
                 </div>
                 <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-44 h-44 bg-[#111827] border border-white/5 rounded-[2.5rem] shadow-2xl p-8 flex flex-col justify-center items-center text-center">
                     <Layers className="text-[#E3242B] mb-2" size={32} />
-                    <p className="text-white font-black text-[9px] uppercase tracking-widest">Multi-Layer <br /> Methodology</p>
+                    <p className="text-white font-black text-[9px] uppercase tracking-widest">Metodologi <br /> Multi-Layer</p>
                 </div>
             </div>
           </div>

@@ -117,7 +117,7 @@ export const News = () => {
                         <div className="w-10 h-10 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shadow-lg">
                             <MonitorPlay size={18} className="text-[#E3242B]" />
                         </div>
-                        <span className="text-[11px] font-black uppercase tracking-[0.3em]">DDP TV</span>
+                        <span className="text-[11px] font-black uppercase tracking-[0.3em]">desa presisi ipb official</span>
                     </div>
                     <div className="aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 bg-black shadow-inner">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/B83_p6gRj-Q" title="YouTube" frameBorder="0" allowFullScreen className="grayscale-[0.4] hover:grayscale-0 transition-all duration-1000"></iframe>

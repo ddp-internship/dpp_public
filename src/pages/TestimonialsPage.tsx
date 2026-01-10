@@ -46,7 +46,7 @@ export const TestimonialsPage = () => {
               {/* Badge Dinamis */}
               <div className="flex items-center gap-4">
                 <div className="px-5 py-2 bg-[#E3242B] text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] rounded-tr-2xl rounded-bl-2xl shadow-xl shadow-red-900/40">
-                  Public Appreciation
+                  Apresiasi Publik
                 </div>
                 <div className="h-px w-16 bg-white/20"></div>
               </div>
@@ -54,12 +54,12 @@ export const TestimonialsPage = () => {
               {/* JUDUL INOVATIF: Perpaduan Solid & Outline */}
               <div className="relative space-y-2">
                   <h2 className="absolute -top-16 left-0 text-white/[0.02] text-[10rem] font-black uppercase tracking-tighter pointer-events-none select-none hidden lg:block">
-                    VOICE
+                    PRESISI
                   </h2>
                   <h1 className="text-5xl md:text-[100px] font-black text-white uppercase tracking-tighter leading-[0.85] relative z-10">
                     Suara <br /> 
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E3242B] to-[#ff4d4d]">
-                        Tokoh.
+                        Tokoh
                     </span>
                   </h1>
               </div>
@@ -101,7 +101,7 @@ export const TestimonialsPage = () => {
                         <div className="w-2 h-2 rounded-full bg-[#E3242B] animate-pulse"></div> Featured Release
                     </span>
                     <h2 className="text-3xl font-black text-[#111827] uppercase tracking-tighter leading-tight">
-                        Dokumentasi <br /> Transformasi Digital.
+                        Dokumentasi <br /> Transformasi Digital
                     </h2>
                 </div>
                 <p className="text-xs md:text-sm font-bold text-gray-400 uppercase leading-relaxed tracking-widest text-justify">

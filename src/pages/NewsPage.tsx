@@ -53,18 +53,18 @@ export const NewsPage = () => {
               {/* Badge Dinamis dengan Animasi */}
               <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
                  <Zap size={14} className="text-[#E3242B] animate-pulse" />
-                 <span className="text-[9px] md:text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">Official Press Room</span>
+                 <span className="text-[9px] md:text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">Pusat Media Resmi</span>
               </div>
               
               <div className="relative">
                   {/* Watermark Background (Mewah) */}
                   <h2 className="absolute -top-16 left-0 text-white/[0.02] text-[8rem] md:text-[12rem] font-black uppercase tracking-tighter pointer-events-none select-none hidden lg:block">
-                    NEWS
+                    PRESISI
                   </h2>
                   <h1 className="text-5xl md:text-[100px] font-black text-white uppercase tracking-tighter leading-[0.9] relative z-10">
                     Warta <br /> 
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E3242B] to-[#ff4d4d]">
-                        Presisi.
+                        Presisi
                     </span>
                   </h1>
               </div>
