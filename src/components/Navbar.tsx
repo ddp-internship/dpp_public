@@ -167,21 +167,43 @@ export const Navbar = () => {
 
       {/* --- MOBILE MENU --- */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 p-8 space-y-6 shadow-2xl absolute w-full left-0 animate-fade-in overflow-y-auto max-h-[85vh]">
-          {['home', 'about', 'features', 'monografi', 'news', 'gallery', 'testimonials'].map((item) => (
-            <button 
-                key={item} 
-                onClick={() => handleNavigation(item)} 
-                className="block w-full text-left font-black text-[11px] text-[#111827] uppercase tracking-widest pb-3 border-b border-gray-50 hover:text-[#E3242B]"
+        <div className="lg:hidden bg-white border-t border-gray-100 p-8 space-y-6 shadow-2xl absolute w-full left-0 animate-fade-in overflow-y-auto max-h-[85vh] z-50">
+          <div className="flex flex-col space-y-2">
+            {/* Daftar Tombol Navigasi Menggunakan Array Mapping */}
+            {[
+              { id: 'hero', label: 'BERANDA' },
+              { id: 'about', label: 'TENTANG KAMI' },
+              { id: 'features', label: 'FITUR' },
+              { id: 'monografi', label: 'MONOGRAFI' },
+              { id: 'news', label: 'BERITA' },
+              { id: 'gallery', label: 'GALERI' },
+              { id: 'testimonials', label: 'TESTIMONI' }
+            ].map((item) => (
+              <button 
+                key={item.id} 
+                onClick={() => handleNavigation(item.id)} 
+                className="block w-full text-left font-black text-[11px] text-[#111827] uppercase tracking-widest pb-4 border-b border-gray-50 hover:text-[#E3242B] transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Portal Admin - Tetap Seperti Semula */}
+          <div className="pt-4">
+            <a 
+              href="https://ddpadmin.vercel.app/" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="flex items-center justify-center gap-2 w-full bg-[#E3242B] text-white py-5 rounded-2xl font-black text-[10px] tracking-[0.2em] shadow-lg shadow-red-900/20 uppercase"
             >
-                {item === 'testimonials' ? 'TESTIMONIALS' : item.toUpperCase()}
-            </button>
-          ))}
-          <a href="https://ddpadmin.vercel.app/" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#E3242B] text-white py-5 rounded-2xl font-black text-[10px] tracking-[0.2em] shadow-lg shadow-red-900/20 uppercase">
-             <ShieldCheck size={16}/> MASUK PORTAL ADMIN
-          </a>
+              <ShieldCheck size={16}/> MASUK PORTAL ADMIN
+            </a>
+          </div>
         </div>
       )}
+
+
     </nav>
   );
 };
