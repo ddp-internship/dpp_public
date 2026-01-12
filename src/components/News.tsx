@@ -165,7 +165,7 @@ export const News = () => {
                         <span className="text-[11px] font-black uppercase tracking-[0.3em]">desa presisi ipb official</span>
                     </div>
                     <div className="aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 bg-black shadow-inner">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SshHof0K6H0" title="YouTube" frameBorder="0" allowFullScreen className="grayscale-[0.4] hover:grayscale-0 transition-all duration-1000"></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/B83_p6gRj-Q" title="YouTube" frameBorder="0" allowFullScreen className="grayscale-[0.4] hover:grayscale-0 transition-all duration-1000"></iframe>
                     </div>
                     <h4 className="font-black uppercase text-[11px] tracking-widest text-white leading-tight">Dokumenter Pendataan Desa Presisi Nasional</h4>
                 </div>
