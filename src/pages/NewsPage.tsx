@@ -121,10 +121,10 @@ export const NewsPage = () => {
                             <div className="flex items-center gap-3 text-[#E3242B] font-black text-[10px] uppercase tracking-widest">
                                 <Tag size={14} /> {items[0].tanggal}
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-black text-[#111827] uppercase tracking-tighter leading-[1.1] group-hover:text-[#E3242B] transition-colors">
+                            <h2 className="text-3xl md:text-5xl font-black text-[#111827] tracking-tighter leading-[1.1] group-hover:text-[#E3242B] transition-colors">
                                 {items[0].judul_artikel}
                             </h2>
-                            <p className="text-gray-500 font-bold text-sm md:text-base uppercase leading-relaxed tracking-wide text-justify line-clamp-6">
+                            <p className="text-gray-500 font-bold text-sm md:text-base leading-relaxed tracking-wide text-left line-clamp-6">
                                 {items[0].isi_artikel}
                             </p>
                             <button className="flex items-center gap-4 font-black text-[10px] uppercase tracking-[0.3em] text-[#111827] group-hover:gap-8 transition-all">
@@ -145,12 +145,15 @@ export const NewsPage = () => {
                                 </div>
                             </div>
                             <div className="space-y-4 px-2">
-                                <h3 className="text-xl md:text-2xl font-black text-[#111827] uppercase tracking-tighter leading-tight group-hover:text-[#E3242B] transition-colors line-clamp-3">
-                                    {news.judul_artikel}
-                                </h3>
-                                <p className="text-gray-400 font-bold text-[11px] md:text-xs uppercase tracking-tight leading-relaxed line-clamp-3">
-                                    {news.isi_artikel}
-                                </p>
+                            {/* Judul Artikel: Menghapus uppercase, ukuran tetap */}
+                            <h3 className="text-xl md:text-2xl font-black text-[#111827] tracking-tighter leading-tight group-hover:text-[#E3242B] transition-colors line-clamp-3">
+                                {news.judul_artikel}
+                            </h3>
+
+                            {/* Isi Artikel: Menghapus uppercase, ukuran tetap, dan rata kiri */}
+                            <p className="text-gray-400 font-bold text-[11px] md:text-xs tracking-tight leading-relaxed text-left line-clamp-3">
+                                {news.isi_artikel}
+                            </p>
                             </div>
                         </div>
                     ))}
@@ -199,7 +202,7 @@ export const NewsPage = () => {
                             <div className="h-px w-10 bg-gray-100"></div>
                             <span className="text-gray-400 font-bold text-[10px] uppercase tracking-widest">{selectedNews.tanggal}</span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-black text-[#111827] uppercase tracking-tighter leading-[1.1]">
+                        <h2 className="text-3xl md:text-5xl font-black text-[#111827] tracking-tighter leading-[1.1]">
                             {selectedNews.judul_artikel}
                         </h2>
                         <div className="flex items-center gap-4 py-6 border-y border-gray-50">

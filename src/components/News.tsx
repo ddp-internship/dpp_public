@@ -85,7 +85,7 @@ export const News = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/20 to-transparent"></div>
               <div className="absolute bottom-10 left-10 right-10 space-y-4 text-left">
                 <span className="bg-[#E3242B] text-white px-5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-xl">BERITA TERKINI</span>
-                <h3 className="text-2xl md:text-3xl font-black text-white leading-tight uppercase tracking-tighter group-hover:text-red-100 transition-colors line-clamp-2">
+                <h3 className="text-2xl md:text-3xl font-black text-white leading-tight tracking-tighter group-hover:text-red-100 transition-colors line-clamp-2">
                   {items[0].judul_artikel}
                 </h3>
               </div>
@@ -98,7 +98,7 @@ export const News = () => {
                             <img src={news.gambar_url} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
                         </div>
                         <div className="px-2 space-y-3">
-                            <h4 className="text-lg font-black text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight uppercase tracking-tighter line-clamp-2">
+                            <h4 className="text-lg font-black text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight tracking-tighter line-clamp-2">
                                 {news.judul_artikel}
                             </h4>
                             <p className="text-gray-400 font-bold text-[9px] uppercase tracking-widest">{news.tanggal}</p>
@@ -174,7 +174,7 @@ export const News = () => {
                         
                         {/* Title Section */}
                         <div className="space-y-8 max-w-4xl">
-                            <h1 className="text-3xl md:text-6xl font-black text-[#111827] uppercase tracking-tighter leading-[1.05]">
+                            <h1 className="text-3xl md:text-6xl font-black text-[#111827] tracking-tighter leading-[1.05]">
                                 {selectedNews.judul_artikel}
                             </h1>
                             
