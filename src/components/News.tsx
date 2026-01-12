@@ -186,7 +186,7 @@ export const News = () => {
                     <div className="w-full px-6 md:px-20 py-8 space-y-8 text-left text-[#111827]">
                         
                         <div className="space-y-4 max-w-4xl">
-                            <h1 className="text-3xl md:text-5xl font-black tracking-tighter leading-[1.05] uppercase">{selectedNews.judul_artikel}</h1>
+                            <h1 className="text-3xl md:text-5xl font-black tracking-tighter leading-[1.05] ">{selectedNews.judul_artikel}</h1>
                             <div className="flex flex-wrap items-center gap-5 py-4 border-y border-gray-100 uppercase">
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 bg-[#111827] text-[#E3242B] rounded-xl flex items-center justify-center font-black text-sm transform -rotate-3">{selectedNews.penulis.charAt(0)}</div>
