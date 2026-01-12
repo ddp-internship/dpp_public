@@ -59,7 +59,7 @@ export const News = () => {
         await navigator.share(shareData);
       } else {
         // Masukkan link gambar agar WA mencoba mengambil preview-nya
-        const waMessage = `*${shareData.title}*\n\nBaca selengkapnya di:\n${shareUrl}\n\nVisual: ${news.gambar_url}`;
+        const waMessage = `*${shareData.title}*\n\nBaca selengkapnya di:\n${shareUrl}\n\nVisual: ${selectedNews.gambar_url}`;
         window.open(`https://wa.me/?text=${encodeURIComponent(waMessage)}`, '_blank');
       }
     } catch (err) {
