@@ -7,7 +7,7 @@ import {
   ShieldCheck, Tag, ArrowUpRight, MonitorPlay,
   User, Bookmark, Share2
 } from 'lucide-react';
-import { api, getStorageUrl } from '../api';
+import { api } from '../api'; // Tanpa getStorageUrl karena pakai gambar_url langsung
 
 export const News = () => {
   // --- STATE MANAGEMENT ---
@@ -33,20 +33,18 @@ export const News = () => {
     fetchData();
   }, []);
 
-  // --- FUNGSI SHARE (AKTIF) ---
+  // --- FUNGSI SHARE PINTAR (AKTIF) ---
   const handleShare = async (news: any) => {
     const shareData = {
       title: news.judul_artikel,
       text: `Baca warta terbaru dari Lab DDP IPB University: ${news.judul_artikel}`,
-      url: window.location.href, // Mengirimkan link website utama Mas
+      url: window.location.href,
     };
 
     try {
-      // Jika dibuka di HP (Android/iOS) yang mendukung fitur Share bawaan
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        // Jika di Laptop, buka WhatsApp Web secara otomatis
         const waLink = `https://wa.me/?text=${encodeURIComponent(shareData.text + " " + shareData.url)}`;
         window.open(waLink, '_blank');
       }
@@ -79,7 +77,7 @@ export const News = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* --- 1. HEADER (KONSISTENSI TOTAL) --- */}
+        {/* --- 1. HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
@@ -98,12 +96,13 @@ export const News = () => {
           </Link>
         </div>
 
-        {/* --- 2. MAIN CONTENT GRID --- */}
+        {/* --- 2. MAIN CONTENT GRID (DENGAN GAMBAR_URL) --- */}
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-8 space-y-12">
             {/* Headline Card */}
             <div onClick={() => setSelectedNews(items[0])} className="group cursor-pointer relative rounded-[3rem] overflow-hidden shadow-2xl transition-all duration-1000 h-[450px] border-4 border-white bg-gray-50">
-              <img src={getStorageUrl(items[0].gambar)} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" alt="Headline" />
+              {/* MENGGUNAKAN GAMBAR_URL LANGSUNG */}
+              <img src={items[0].gambar_url} className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" alt="Headline" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/20 to-transparent"></div>
               <div className="absolute bottom-10 left-10 right-10 space-y-4 text-left">
                 <span className="bg-[#E3242B] text-white px-5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-xl">BERITA TERKINI</span>
@@ -117,7 +116,8 @@ export const News = () => {
                 {items.slice(1, 3).map((news) => (
                     <div key={news.id} onClick={() => setSelectedNews(news)} className="group cursor-pointer space-y-6 text-left">
                         <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white bg-gray-50">
-                            <img src={getStorageUrl(news.gambar)} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
+                            {/* MENGGUNAKAN GAMBAR_URL LANGSUNG */}
+                            <img src={news.gambar_url} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
                         </div>
                         <div className="px-2 space-y-3">
                             <h4 className="text-lg font-black text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight tracking-tighter line-clamp-2">
@@ -139,7 +139,7 @@ export const News = () => {
                         <div className="w-10 h-10 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shadow-lg">
                             <MonitorPlay size={18} className="text-[#E3242B]" />
                         </div>
-                        <span className="text-[11px] font-black uppercase tracking-[0.3em]">DDP TV Official</span>
+                        <span className="text-[11px] font-black uppercase tracking-[0.3em]">desa presisi ipb official</span>
                     </div>
                     <div className="aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 bg-black shadow-inner">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/B83_p6gRj-Q" title="YouTube" frameBorder="0" allowFullScreen className="grayscale-[0.4] hover:grayscale-0 transition-all duration-1000"></iframe>
@@ -147,18 +147,18 @@ export const News = () => {
                     <h4 className="font-black uppercase text-[11px] tracking-widest text-white leading-tight">Dokumenter Pendataan Desa Presisi Nasional</h4>
                 </div>
             </div>
-            <div className="p-8 bg-gray-50 rounded-[3rem] border border-gray-100 shadow-inner space-y-4">
+            <div className="p-8 bg-gray-50 rounded-[3rem] border border-gray-100 shadow-inner space-y-4 text-left">
                 <div className="flex items-center justify-between">
                     <div className="w-12 h-12 bg-white text-[#E3242B] rounded-2xl flex items-center justify-center shadow-md"><Hash size={20} /></div>
                     <span className="text-3xl font-black text-[#111827] tracking-tighter">{totalBerita}</span>
                 </div>
-                <p className="text-[10px] font-black text-[#111827] uppercase tracking-widest text-left">Total Publikasi Terverifikasi</p>
+                <p className="text-[10px] font-black text-[#111827] uppercase tracking-widest">Total Publikasi Terverifikasi</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* --- 3. THE IMMERSIVE EDITORIAL READER (FUNGSI SHARE AKTIF) --- */}
+      {/* --- 3. THE IMMERSIVE EDITORIAL READER (DENGAN GAMBAR_URL) --- */}
       {selectedNews && createPortal(
         <div className="fixed inset-0 z-[100000] flex items-center justify-center">
           <div className="absolute inset-0 bg-[#0a0f1a]/98 backdrop-blur-3xl animate-fade-in" onClick={() => setSelectedNews(null)}></div>
@@ -167,13 +167,12 @@ export const News = () => {
             
             {/* Header Modal */}
             <div className="flex items-center justify-between px-8 md:px-14 py-6 bg-white border-b sticky top-0 z-50">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 text-left">
                     <span className="bg-[#E3242B] text-white px-4 py-1 rounded-full font-black text-[9px] uppercase tracking-widest">{selectedNews.kategori}</span>
                     <div className="h-4 w-px bg-gray-200"></div>
                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden sm:block">Lab DDP IPB Press Release</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    {/* TOMBOL SHARE AKTIF */}
                     <button 
                       onClick={() => handleShare(selectedNews)}
                       className="p-2.5 text-gray-400 hover:text-[#E3242B] hover:bg-red-50 rounded-xl transition-all"
@@ -189,7 +188,8 @@ export const News = () => {
                 <div className="max-w-5xl mx-auto flex flex-col items-center">
                     
                     <div className="w-full aspect-video md:aspect-[21/9] overflow-hidden relative border-b border-gray-100 bg-gray-50">
-                        <img src={getStorageUrl(selectedNews.gambar)} className="w-full h-full object-cover" alt="Hero" />
+                        {/* MENGGUNAKAN GAMBAR_URL LANGSUNG */}
+                        <img src={selectedNews.gambar_url} className="w-full h-full object-cover" alt="Hero" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
 
@@ -208,7 +208,7 @@ export const News = () => {
                                 </div>
                                 <div className="h-10 w-px bg-gray-100 hidden sm:block"></div>
                                 <div className="space-y-0.5">
-                                    <p className="text-[9px] font-black text-gray-400 tracking-widest">Diterbitkan Pada</p>
+                                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Diterbitkan Pada</p>
                                     <p className="text-sm font-black text-[#E3242B]">{selectedNews.tanggal}</p>
                                 </div>
                             </div>
@@ -216,6 +216,10 @@ export const News = () => {
 
                         {/* Narasi Teks */}
                         <div className="text-gray-700 text-lg md:text-2xl leading-[2] md:leading-[2.4] font-medium text-left tracking-normal whitespace-pre-line relative z-10">
+                            <div className="absolute top-40 left-1/2 -translate-x-1/2 -z-10 opacity-[0.03] select-none text-[15rem] font-black pointer-events-none uppercase tracking-tighter">
+                                DDP
+                            </div>
+                            
                             {selectedNews.isi_artikel.split('\n').map((para: string, i: number) => (
                                 <p key={i} className={`mb-12 ${i === 0 ? "first-letter:text-8xl md:first-letter:text-[12rem] first-letter:font-black first-letter:text-[#E3242B] first-letter:mr-6 first-letter:float-left first-letter:leading-none first-letter:mt-4" : ""}`}>
                                     {para}
@@ -227,7 +231,7 @@ export const News = () => {
                         <div className="pt-20 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 opacity-60">
                             <div className="flex items-center gap-4">
                                 <ShieldCheck size={32} className="text-emerald-500" />
-                                <div className="space-y-1">
+                                <div className="space-y-1 text-left">
                                     <span className="text-[11px] font-black uppercase tracking-widest">Verified Press Release</span>
                                     <p className="text-[9px] font-bold text-gray-400 uppercase">Dokumen Resmi Laboratory Data Desa Presisi IPB University.</p>
                                 </div>
@@ -244,6 +248,7 @@ export const News = () => {
 
       <style>{`
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #E3242B; border-radius: 10px; }
       `}</style>
     </section>
