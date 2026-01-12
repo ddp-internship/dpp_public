@@ -123,7 +123,7 @@ export const News = () => {
                         <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white bg-gray-50">
                             <img src={news.gambar_url} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="News" />
                         </div>
-                        <h4 className="px-2 text-lg font-black text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight uppercase tracking-tighter line-clamp-2">{news.judul_artikel}</h4>
+                        <h4 className="px-2 text-lg font-black text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight tracking-tighter line-clamp-2">{news.judul_artikel}</h4>
                     </div>
                 ))}
             </div>
