@@ -1,14 +1,30 @@
+/* 1. IMPORT FONT DARI GOOGLE (Wajib agar browser kenal fontnya) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+
 @import "tailwindcss";
 
 @theme {
   --color-navy: #111827;
   --color-crimson: #E3242B;
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+  
+  /* 2. UBAH VARIABLE FONT DI SINI */
+  --font-sans: "Poppins", sans-serif;
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply bg-[#FDFDFD] text-navy; }
+  html { 
+    scroll-behavior: smooth; 
+  }
+  
+  body { 
+    /* 3. PASTIKAN BODY MENGGUNAKAN FONT SANS */
+    @apply bg-[#FDFDFD] text-navy font-sans antialiased; 
+  }
+
+  /* Inovasi: Otomatis buat semua Judul (h1-h6) jadi tebal khas DDP */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black tracking-tighter uppercase;
+  }
 }
 
 @layer utilities {
@@ -36,3 +52,13 @@
   }
 }
 
+/* Custom Scrollbar DDP Premium */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray-50;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-crimson transition-colors;
+}
