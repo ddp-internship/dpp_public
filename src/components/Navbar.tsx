@@ -54,7 +54,7 @@ export const Navbar = () => {
         {/* --- LOGO SECTION --- */}
         <div onClick={() => navigate('/')} className="flex items-center gap-3 shrink-0 cursor-pointer">
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg p-1.5 border border-gray-100">
-            <img src="/img/logo-ddp.png" alt="Logo DDP" className="w-full h-full object-contain" />
+            <img src="/img/logo-banner2.png" alt="Logo DDP" className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-col">
             <span className={`font-black tracking-tighter text-xl leading-none transition-colors duration-500 ${isScrolled || location.pathname !== '/' ? 'text-[#111827]' : 'text-white'}`}>
