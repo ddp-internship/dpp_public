@@ -1,3 +1,4 @@
+import { ScrollReveal } from './ScrollReveal';
 import React, { useEffect, useState, useRef } from 'react';
 import { 
   Database, Users, Map, Home, 
