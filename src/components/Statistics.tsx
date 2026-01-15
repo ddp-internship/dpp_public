@@ -178,7 +178,7 @@ export const Statistics = () => {
                       <p className={`text-[10px] md:text-[11px] font-black tracking-[0.4em] mt-2 
                         ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>{item.label}</p>
                       
-                      <p className={`text-[8px] md:text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-4 md:mt-6 transition-all duration-1000 leading-relaxed
+                      <p className={`text-[8px] md:text-[9px] font-bold text-gray-400 tracking-widest mt-4 md:mt-6 transition-all duration-1000 leading-relaxed
                         ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                         {item.info}
                       </p>
