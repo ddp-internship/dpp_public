@@ -244,7 +244,7 @@ export const Statistics = () => {
                             <div className="h-px w-8 bg-gray-200"></div>
                         </div>
                         <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.25em] leading-relaxed">
-                            Data telah melalui proses verifikasi spasial & sensus partisipatif.
+                            Data telah melalui proses verifikasi spasial & sensus partisipatif standar IPB University.
                         </p>
                     </div>
                 </div>
