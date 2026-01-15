@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Quote, Star, ArrowRight, Calendar, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
-import { ScrollReveal } from './ScrollReveal'; // Tambahkan Animasi
+import { ScrollReveal } from './ScrollReveal'; 
 
 export const Testimonials = () => {
   const [items, setItems] = useState<any[]>([]);
@@ -16,7 +16,8 @@ export const Testimonials = () => {
           api.get('/public/testimoni/featured'),
           api.get('/public/testimoni/count')
         ]);
-        setItems(featuredRes.data);
+        // Menampilkan maksimal 5 sesuai instruksi terbaru
+        setItems(featuredRes.data.slice(0, 5));
         setTotalCount(countRes.data.total);
       } catch (error) {
         console.error("Gagal memuat data testimoni");
@@ -58,15 +59,15 @@ export const Testimonials = () => {
           </div>
         </ScrollReveal>
 
-        {/* --- 2. MODERN GRID CEO STYLE --- */}
+        {/* --- 2. MODERN GRID CEO STYLE (Tampil 5 Card) --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.slice(0, 3).map((item, index) => (
+          {items.map((item, index) => (
             <ScrollReveal key={item.id} delay={index * 0.1}>
-              <div className="group bg-white h-full p-10 rounded-[2.5rem] border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(227,36,43,0.08)] hover:border-[#E3242B]/20 transition-all duration-700 flex flex-col justify-between relative overflow-hidden">
-                {/* Accent Line Decor */}
+              <div className="group bg-white h-full p-8 md:p-10 rounded-[2.5rem] border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(227,36,43,0.08)] hover:border-[#E3242B]/20 transition-all duration-700 flex flex-col justify-between relative overflow-hidden">
+                
                 <div className="absolute top-0 left-0 w-2 h-full bg-gray-50 group-hover:bg-[#E3242B] transition-colors duration-700"></div>
 
-                <div className="space-y-8">
+                <div className="space-y-6">
                   <div className="flex justify-between items-start">
                     <Quote size={32} className="text-[#E3242B]/10 group-hover:text-[#E3242B]/20 transition-colors" />
                     <div className="flex gap-1">
@@ -74,11 +75,11 @@ export const Testimonials = () => {
                     </div>
                   </div>
 
-                  <p className="text-[#111827] font-bold text-base leading-relaxed tracking-tight line-clamp-6 italic">
+                  <p className="text-[#111827] font-bold text-sm md:text-base leading-relaxed tracking-tight line-clamp-6 italic">
                     "{item.isi}"
                   </p>
 
-                  <div className="pt-6">
+                  <div className="pt-4">
                     <div className="inline-block px-4 py-1.5 bg-gray-50 rounded-full border border-gray-100 group-hover:bg-red-50 group-hover:border-red-100 transition-colors">
                       <p className="text-[9px] font-black text-[#111827] uppercase tracking-widest leading-none">
                         {item.jabatan}
@@ -87,7 +88,7 @@ export const Testimonials = () => {
                   </div>
                 </div>
 
-                <div className="mt-10 pt-8 border-t border-gray-100 flex items-center gap-4">
+                <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md border-2 border-white shrink-0 bg-gray-50 transition-transform duration-500 group-hover:scale-110">
                     <img src={item.gambar_url} className="w-full h-full object-cover" alt={item.nama} />
                   </div>
