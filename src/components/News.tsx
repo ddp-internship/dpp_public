@@ -101,7 +101,7 @@ export const News = () => {
                 Pusat Media
               </span>
               <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-none">
-                Warta <span className="text-[#E3242B]">Terkini</span>
+                Berita <span className="text-[#E3242B]">Terkini</span>
               </h2>
               <p className="text-gray-500 font-medium text-sm max-w-md leading-relaxed">
                 Publikasi resmi dan kabar terbaru mengenai transformasi data desa di seluruh Indonesia.
