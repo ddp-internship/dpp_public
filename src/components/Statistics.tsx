@@ -52,7 +52,7 @@ export const Statistics = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // SOP: Sinkronisasi data capaian dari backend
+    // Sinkronisasi data capaian dari backend
     api.get('/public/capaian')
       .then(res => {
         if (res.data.length > 0) setDbData(res.data[0]);
@@ -156,12 +156,7 @@ export const Statistics = () => {
                   }`}
               >
                 {/* Pop-up Indicator Label */}
-                {isActive && (
-                  <div className="absolute -top-5 bg-[#E3242B] text-white text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg animate-bounce">
-                    Data Terverifikasi
-                  </div>
-                )}
-
+                
                 <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-8 transition-all duration-500
                   ${isActive ? 'bg-[#E3242B] text-white rotate-[10deg] scale-110' : 'bg-gray-50 text-gray-400'}`}>
                   <item.icon size={36} />
@@ -249,7 +244,7 @@ export const Statistics = () => {
                             <p className="text-[12px] font-black text-[#E3242B] uppercase tracking-[0.5em]">Indeks Gender</p>
                         </div>
                         <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em] px-8 relative z-10 leading-relaxed">
-                            Rasio Jenis Kelamin per 100 Perempuan Terintegrasi Lab DDP IPB University
+                            Rasio Jenis Kelamin per 100 Perempuan
                         </p>
                     </div>
                 </div>
