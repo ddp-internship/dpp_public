@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { api, getStorageUrl } from '../api'; 
+import { api } from '../api'; 
 import { Building2, GraduationCap, ShieldCheck, CheckCircle, MessageCircle } from 'lucide-react';
 
 export const Partners = () => {
@@ -23,10 +23,9 @@ export const Partners = () => {
   // --- KONFIGURASI WHATSAPP DIRECT ---
   const handleDirectWhatsApp = () => {
     const phoneNumber = "6281356566546";
-    const message = encodeURIComponent("Halo Admin DDP, saya tertarik untuk mengetahui lebih lanjut mengenai inisiasi kerjasama dan implementasi Data Desa Presisi.");
+    const message = encodeURIComponent("Halo Admin DDP, saya tertarik untuk mengetahui lebih lanjut mengenai inisiasi kerja sama dan implementasi Data Desa Presisi.");
     const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
     
-    // Langsung buka WhatsApp di tab baru
     window.open(waLink, '_blank');
   };
 
@@ -46,24 +45,24 @@ export const Partners = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Jejaring Resmi</span>
+               <span className="text-[10px] font-bold text-[#E3242B] tracking-widest uppercase">Jejaring Resmi</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase">
-              Jejaring <span className="text-[#E3242B]">Kerjasama</span>
+            <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter leading-none">
+              Jejaring <span className="text-[#E3242B]">Kerja Sama</span>
             </h2>
-            <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
+            <p className="text-gray-500 font-medium text-sm max-w-md leading-relaxed">
               Bekerja bersama membangun kedaulatan data desa di seluruh Indonesia.
             </p>
           </div>
           
-          <div className="flex p-1 bg-gray-50 rounded-2xl border border-gray-100 shadow-inner overflow-x-auto no-scrollbar">
+          <div className="flex p-1.5 bg-gray-50 rounded-2xl border border-gray-100 shadow-inner overflow-x-auto no-scrollbar">
             {partnerTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-500 shrink-0 ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-[11px] font-bold tracking-wide transition-all duration-500 shrink-0 ${
                   activeTab === tab.id 
-                  ? 'bg-white text-[#E3242B] shadow-md' 
+                  ? 'bg-white text-[#E3242B] shadow-sm' 
                   : 'text-gray-400 hover:text-[#111827]'
                 }`}
               >
@@ -79,7 +78,7 @@ export const Partners = () => {
           {loading ? (
              <div className="flex flex-col justify-center items-center h-40 space-y-3">
                 <div className="w-8 h-8 border-3 border-[#E3242B] border-t-transparent rounded-full animate-spin"></div>
-                <p className="text-[8px] font-black text-gray-300 uppercase tracking-widest">Memuat Daftar Mitra...</p>
+                <p className="text-[10px] font-bold text-gray-300 tracking-wider">Memuat daftar mitra...</p>
              </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -94,7 +93,7 @@ export const Partners = () => {
                     className="max-h-16 max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
                   <div className="mt-4 text-center">
-                      <p className="text-[8px] font-black text-gray-300 group-hover:text-[#111827] uppercase leading-tight line-clamp-2 px-1 tracking-tighter">
+                      <p className="text-[10px] font-bold text-gray-400 group-hover:text-[#111827] leading-tight line-clamp-2 px-1 tracking-tight">
                          {mitra.nama_mitra}
                       </p>
                   </div>
@@ -103,7 +102,7 @@ export const Partners = () => {
 
               <div className="bg-gray-50/50 border border-dashed border-gray-200 rounded-[2rem] flex flex-col items-center justify-center p-6 text-center group hover:bg-white transition-all duration-500">
                  <CheckCircle size={20} className="text-[#E3242B] mb-2 opacity-30 group-hover:opacity-100 transition-opacity" />
-                 <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest leading-none">
+                 <p className="text-[9px] font-bold text-gray-400 tracking-widest leading-none uppercase">
                     Data <br /> <span className="text-[#111827]">Terpercaya</span>
                  </p>
               </div>
@@ -111,30 +110,29 @@ export const Partners = () => {
           )}
         </div>
 
-        {/* --- 3. CALL TO ACTION (WHATSAPP DIRECT) --- */}
+        {/* --- 3. CALL TO ACTION --- */}
         <div className="mt-20 p-8 md:p-12 bg-[#111827] rounded-[3.5rem] flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden border border-white/5">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#E3242B] opacity-10 blur-[100px]"></div>
 
-            <div className="flex flex-col md:flex-row items-center gap-6 relative z-10 text-center md:text-left">
+            <div className="flex flex-col md:flex-row items-center gap-6 relative z-10 text-center md:text-left text-left">
                 <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shadow-xl">
                     <ShieldCheck className="text-[#E3242B]" size={28} />
                 </div>
                 <div className="space-y-1">
-                    <h4 className="text-white text-xl md:text-2xl font-black uppercase tracking-tighter">
+                    <h4 className="text-white text-xl md:text-2xl font-black tracking-tight leading-tight">
                         Wujudkan Satu Data Indonesia
                     </h4>
-                    <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-                        Telah dipercaya oleh <span className="text-white">{allMitra.length}+ Instansi Pemerintah dan Universitas</span>
+                    <p className="text-gray-400 text-xs font-medium tracking-wide">
+                        Telah dipercaya oleh <span className="text-white">{allMitra.length}+ instansi pemerintah dan universitas</span>
                     </p>
                 </div>
             </div>
 
-            {/* TOMBOL DIRECT WHATSAPP */}
             <button 
                 onClick={handleDirectWhatsApp}
-                className="group relative z-10 px-8 py-5 bg-[#E3242B] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-xl hover:bg-white hover:text-[#111827] transition-all duration-500 shadow-2xl shadow-red-900/50 flex items-center gap-3 active:scale-95"
+                className="group relative z-10 px-10 py-5 bg-[#E3242B] text-white text-xs font-bold tracking-wide rounded-2xl hover:bg-white hover:text-[#111827] transition-all duration-500 shadow-xl flex items-center gap-3 active:scale-95"
             >
-                Mari Bekerja Sama <MessageCircle size={16} className="group-hover:scale-110 transition-transform" />
+                Mari Bekerja Sama <MessageCircle size={18} className="group-hover:rotate-12 transition-transform" />
             </button>
         </div>
 
@@ -142,3 +140,4 @@ export const Partners = () => {
     </section>
   );
 };
+

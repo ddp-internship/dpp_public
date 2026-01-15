@@ -16,11 +16,8 @@ export const News = () => {
   const [totalBerita, setTotalBerita] = useState(0);
   const [loading, setLoading] = useState(true);
   const [selectedNews, setSelectedNews] = useState<any>(null);
-
-  // Membaca parameter dari URL
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // --- 1) AMBIL DATA DARI BACKEND ---
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,7 +27,6 @@ export const News = () => {
         const countRes = await api.get('/public/berita/count');
         setTotalBerita(countRes.data.total);
 
-        // --- LOGIKA AUTO-OPEN (POPUP) dari ?newsId= ---
         const newsIdFromUrl = searchParams.get('newsId');
         if (newsIdFromUrl && newsRes.data?.length > 0) {
           const found = newsRes.data.find(
@@ -48,13 +44,11 @@ export const News = () => {
     fetchData();
   }, [searchParams]);
 
-  // --- 2) FUNGSI SHARE (OG PREVIEW VIA /share/news/:id) ---
   const handleShare = async (news: any) => {
     const shareUrl = `${window.location.origin}/share/news/${news.id}`;
-
     const shareData = {
       title: news.judul_artikel,
-      text: `[WARTA DDP] ${news.judul_artikel}`,
+      text: `[Warta DDP] ${news.judul_artikel}`,
       url: shareUrl,
     };
 
@@ -62,14 +56,10 @@ export const News = () => {
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        // Fallback WA
-        // Catatan: OG preview WA tetap diambil dari URL, bukan dari teks message
         const waMessage = `*${shareData.title}*\n\nBaca selengkapnya di:\n${shareUrl}`;
         window.open(`https://wa.me/?text=${encodeURIComponent(waMessage)}`, '_blank');
       }
     } catch (err) {
-      console.log('Share dibatalkan / gagal', err);
-      // fallback WA kalau share dibatalkan/failed
       const waMessage = `*${shareData.title}*\n\nBaca selengkapnya di:\n${shareUrl}`;
       window.open(`https://wa.me/?text=${encodeURIComponent(waMessage)}`, '_blank');
     }
@@ -77,7 +67,7 @@ export const News = () => {
 
   const closeNews = () => {
     setSelectedNews(null);
-    setSearchParams({}); // bersihkan URL
+    setSearchParams({});
   };
 
   useEffect(() => {
@@ -88,8 +78,8 @@ export const News = () => {
     return (
       <div className="py-40 text-center space-y-3">
         <div className="w-8 h-8 border-3 border-[#E3242B] border-t-transparent rounded-full animate-spin mx-auto"></div>
-        <p className="text-[8px] font-black text-gray-300 uppercase tracking-widest">
-          Sinkronisasi Warta...
+        <p className="text-[10px] font-bold text-gray-400 tracking-wider">
+          Menyiapkan berita terbaru...
         </p>
       </div>
     );
@@ -105,23 +95,23 @@ export const News = () => {
         {/* HEADER */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100 text-left text-[#111827]">
           <div className="space-y-3">
-            <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">
+            <span className="text-[11px] font-bold text-[#E3242B] uppercase tracking-widest">
               Pusat Media
             </span>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase leading-none">
-              Pusat <span className="text-[#E3242B]">Warta</span>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-none">
+              Warta <span className="text-[#E3242B]">Terkini</span>
             </h2>
-            <p className="text-gray-500 font-bold text-xs uppercase tracking-widest max-w-md leading-relaxed">
-              Publikasi resmi dan kabar terkini mengenai transformasi data desa di Indonesia.
+            <p className="text-gray-500 font-medium text-sm max-w-md leading-relaxed">
+              Publikasi resmi dan kabar terbaru mengenai transformasi data desa di seluruh Indonesia.
             </p>
           </div>
 
           <Link
             to="/news"
-            className="group flex items-center gap-3 px-8 py-4 bg-[#111827] text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-[#E3242B] transition-all shadow-xl active:scale-95 shrink-0"
+            className="group flex items-center gap-3 px-8 py-4 bg-[#111827] text-white rounded-2xl font-bold text-xs tracking-wide hover:bg-[#E3242B] transition-all shadow-xl active:scale-95 shrink-0"
           >
-            Jelajahi Arsip{' '}
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            Jelajahi Arsip Berita
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -135,12 +125,12 @@ export const News = () => {
               <img
                 src={items[0].gambar_url}
                 className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
-                alt="Headline"
+                alt="Berita Utama"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/20 to-transparent"></div>
               <div className="absolute bottom-10 left-10 right-10 space-y-4 text-left">
-                <span className="bg-[#E3242B] text-white px-5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-xl">
-                  BERITA TERKINI
+                <span className="bg-[#E3242B] text-white px-5 py-1.5 rounded-lg text-[10px] font-bold tracking-wider">
+                  Topik Utama
                 </span>
                 <h3 className="text-2xl md:text-3xl font-black text-white leading-tight tracking-tighter group-hover:text-red-100 transition-colors line-clamp-2">
                   {items[0].judul_artikel}
@@ -159,10 +149,10 @@ export const News = () => {
                     <img
                       src={news.gambar_url}
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                      alt="News"
+                      alt="Thumbnail Berita"
                     />
                   </div>
-                  <h4 className="px-2 text-lg font-black text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight tracking-tighter line-clamp-2">
+                  <h4 className="px-2 text-lg font-bold text-[#111827] group-hover:text-[#E3242B] transition-colors leading-tight tracking-tight line-clamp-2">
                     {news.judul_artikel}
                   </h4>
                 </div>
@@ -178,8 +168,8 @@ export const News = () => {
                   <div className="w-10 h-10 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shadow-lg">
                     <MonitorPlay size={18} className="text-[#E3242B]" />
                   </div>
-                  <span className="text-[11px] font-black uppercase tracking-[0.3em]">
-                    ipb official tv
+                  <span className="text-[11px] font-bold uppercase tracking-widest">
+                    IPB Official TV
                   </span>
                 </div>
 
@@ -188,14 +178,14 @@ export const News = () => {
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/B83_p6gRj-Q"
-                    title="YouTube"
+                    title="Dokumenter IPB"
                     frameBorder="0"
                     allowFullScreen
                     className="grayscale-[0.4] hover:grayscale-0 transition-all duration-1000"
                   ></iframe>
                 </div>
 
-                <h4 className="font-black uppercase text-[11px] tracking-widest text-white leading-tight">
+                                <h4 className="font-bold text-base leading-tight">
                   Dokumenter Pendataan Desa Presisi
                 </h4>
               </div>
@@ -210,7 +200,7 @@ export const News = () => {
                   {totalBerita}
                 </span>
               </div>
-              <p className="text-[10px] font-black text-[#111827] uppercase tracking-widest">
+              <p className="text-[10px] font-bold text-[#111827] uppercase tracking-widest">
                 Total Publikasi Terverifikasi
               </p>
             </div>
@@ -231,12 +221,12 @@ export const News = () => {
               {/* Header Modal */}
               <div className="flex items-center justify-between px-6 md:px-12 py-4 bg-white border-b sticky top-0 z-50">
                 <div className="flex items-center gap-4 text-left">
-                  <span className="bg-[#E3242B] text-white px-4 py-1 rounded-full font-black text-[9px] uppercase tracking-widest">
+                  <span className="bg-[#E3242B] text-white px-4 py-1 rounded-full font-bold text-[10px] tracking-wide">
                     {selectedNews.kategori}
                   </span>
                   <div className="h-4 w-px bg-gray-200 hidden sm:block"></div>
-                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest hidden sm:block">
-                    Press Release
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden sm:block">
+                    Rilis Pers Resmi
                   </span>
                 </div>
 
@@ -244,14 +234,14 @@ export const News = () => {
                   <button
                     onClick={() => handleShare(selectedNews)}
                     className="p-2 text-gray-400 hover:text-[#E3242B] transition-all"
-                    title="Bagikan"
+                    aria-label="Bagikan"
                   >
                     <Share2 size={20} />
                   </button>
                   <button
                     onClick={closeNews}
                     className="p-2 bg-gray-100 text-gray-400 hover:text-[#E3242B] rounded-full transition-all"
-                    title="Tutup"
+                    aria-label="Tutup"
                   >
                     <X size={24} />
                   </button>
@@ -265,7 +255,7 @@ export const News = () => {
                     <img
                       src={selectedNews.gambar_url}
                       className="w-full h-full object-cover"
-                      alt="Hero"
+                      alt="Gambar Berita"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
@@ -276,16 +266,16 @@ export const News = () => {
                         {selectedNews.judul_artikel}
                       </h1>
 
-                      <div className="flex flex-wrap items-center gap-5 py-4 border-y border-gray-100 uppercase">
+                      <div className="flex flex-wrap items-center gap-5 py-4 border-y border-gray-100">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-[#111827] text-[#E3242B] rounded-xl flex items-center justify-center font-black text-sm transform -rotate-3">
+                          <div className="w-10 h-10 bg-[#111827] text-[#E3242B] rounded-xl flex items-center justify-center font-bold text-sm transform -rotate-3">
                             {selectedNews.penulis?.charAt(0)}
                           </div>
                           <div className="space-y-0.5">
-                            <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest leading-none">
-                              Redaksi
+                            <p className="text-[10px] font-bold text-gray-400 tracking-widest uppercase leading-none">
+                              Penyusun
                             </p>
-                            <p className="text-xs font-black leading-none">
+                            <p className="text-xs font-bold leading-none">
                               {selectedNews.penulis}
                             </p>
                           </div>
@@ -294,17 +284,17 @@ export const News = () => {
                         <div className="h-6 w-px bg-gray-100 hidden sm:block"></div>
 
                         <div className="space-y-0.5">
-                          <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest leading-none">
-                            Terbit
+                          <p className="text-[10px] font-bold text-gray-400 tracking-widest uppercase leading-none">
+                            Tanggal Terbit
                           </p>
-                          <p className="text-xs font-black text-[#E3242B] leading-none">
+                          <p className="text-xs font-bold text-[#E3242B] leading-none">
                             {selectedNews.tanggal}
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Narasi */}
+                    {/* Narasi Berita */}
                     <div className="text-gray-700 text-lg md:text-xl leading-[1.8] font-medium text-left tracking-normal whitespace-pre-line relative z-10">
                       {String(selectedNews.isi_artikel || '')
                         .split('\n')
@@ -323,10 +313,10 @@ export const News = () => {
                     </div>
 
                     {/* Footer Branding */}
-                    <div className="pt-8 border-t border-gray-100 flex items-center gap-4 opacity-50 text-left">
+                    <div className="pt-8 border-t border-gray-100 flex items-center gap-4 opacity-70 text-left">
                       <ShieldCheck size={24} className="text-emerald-500" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">
-                        Verified Press Release Lab DDP IPB University
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                        Publikasi Resmi Terverifikasi Lab DDP IPB University
                       </span>
                     </div>
                   </div>
