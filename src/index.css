@@ -8,7 +8,7 @@
   --color-crimson: #E3242B;
   
   /* 2. UBAH VARIABLE FONT DI SINI */
-  --font-sans: "Poppins", sans-serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 @layer base {
@@ -23,7 +23,7 @@
 
   /* Inovasi: Otomatis buat semua Judul (h1-h6) jadi tebal khas DDP */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-black tracking-tighter uppercase;
+    @apply font-medium tracking-tighter uppercase;
   }
 }
 
