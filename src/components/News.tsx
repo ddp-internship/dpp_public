@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useSearchParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion'; // Tambah motion
+import { motion, AnimatePresence } from 'framer-motion'; 
 import {
   ArrowRight,
   X,
@@ -11,7 +11,7 @@ import {
   Share2,
 } from 'lucide-react';
 import { api } from '../api';
-import { ScrollReveal } from './ScrollReveal'; // Tambah ScrollReveal
+import { ScrollReveal } from './ScrollReveal'; 
 
 export const News = () => {
   const [items, setItems] = useState<any[]>([]);
@@ -95,7 +95,6 @@ export const News = () => {
     >
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* HEADER - DIBUNGKUS ANIMASI */}
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100 text-left text-[#111827]">
             <div className="space-y-3">
@@ -120,11 +119,9 @@ export const News = () => {
           </div>
         </ScrollReveal>
 
-        {/* GRID UTAMA */}
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-8 space-y-12">
             
-            {/* BERITA UTAMA - ANIMASI UP */}
             <ScrollReveal delay={0.1}>
               <div
                 onClick={() => setSelectedNews(items[0])}
@@ -149,7 +146,6 @@ export const News = () => {
 
             <div className="grid md:grid-cols-2 gap-10">
               {items.slice(1, 3).map((news, index) => (
-                /* LIST BERITA - ANIMASI BERTAHAP */
                 <ScrollReveal key={news.id} delay={0.2 + index * 0.1}>
                   <div
                     onClick={() => setSelectedNews(news)}
@@ -171,9 +167,7 @@ export const News = () => {
             </div>
           </div>
 
-          {/* SIDEBAR */}
           <div className="lg:col-span-4 space-y-8 text-left">
-            {/* VIDEO CARD - ANIMASI DARI KANAN */}
             <ScrollReveal direction="left" delay={0.3}>
               <div className="bg-[#111827] rounded-[3.5rem] p-10 text-white relative overflow-hidden shadow-2xl border border-white/5">
                 <div className="relative z-10 space-y-8">
@@ -205,7 +199,6 @@ export const News = () => {
               </div>
             </ScrollReveal>
 
-            {/* COUNT CARD - ANIMASI DARI KANAN */}
             <ScrollReveal direction="left" delay={0.4}>
               <div className="p-8 bg-gray-50 rounded-[3rem] border border-gray-100 shadow-inner space-y-4">
                 <div className="flex items-center justify-between">
@@ -225,7 +218,6 @@ export const News = () => {
         </div>
       </div>
 
-      {/* IMMERSIVE READER - DENGAN ANIMASI TRANSISI */}
       <AnimatePresence>
         {selectedNews &&
           createPortal(
@@ -234,17 +226,19 @@ export const News = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-[#0a0f1a]/98 backdrop-blur-3xl"
+                // FIX: Menurunkan tingkat blur dari 3xl ke xl agar tidak LAG
+                className="absolute inset-0 bg-[#0a0f1a]/95 backdrop-blur-xl"
                 onClick={closeNews}
               ></motion.div>
 
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="relative bg-white w-full h-full md:max-w-6xl md:h-[90vh] md:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col border border-white/10"
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 100 }}
+                // FIX: Menggunakan ease standar agar transisi modal lancar
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="relative bg-white w-full h-full md:max-w-6xl md:h-[92vh] md:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col border border-white/10"
               >
-                {/* Header Modal */}
                 <div className="flex items-center justify-between px-6 md:px-12 py-4 bg-white border-b sticky top-0 z-50">
                   <div className="flex items-center gap-4 text-left">
                     <span className="bg-[#E3242B] text-white px-4 py-1 rounded-full font-bold text-[10px] tracking-wide">
@@ -274,7 +268,6 @@ export const News = () => {
                   </div>
                 </div>
 
-                {/* Konten Reader */}
                 <div className="flex-1 overflow-y-auto custom-scrollbar bg-white">
                   <div className="max-w-5xl mx-auto flex flex-col items-center">
                     <div className="w-full aspect-video md:aspect-[21/9] overflow-hidden relative border-b border-gray-100 bg-gray-50">
@@ -320,7 +313,6 @@ export const News = () => {
                         </div>
                       </div>
 
-                      {/* Narasi Berita */}
                       <div className="text-gray-700 text-lg md:text-xl leading-[1.8] font-medium text-left tracking-normal whitespace-pre-line relative z-10">
                         {String(selectedNews.isi_artikel || '')
                           .split('\n')
@@ -338,7 +330,6 @@ export const News = () => {
                           ))}
                       </div>
 
-                      {/* Footer Branding */}
                       <div className="pt-8 border-t border-gray-100 flex items-center gap-4 opacity-70 text-left">
                         <ShieldCheck size={24} className="text-emerald-500" />
                         <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
