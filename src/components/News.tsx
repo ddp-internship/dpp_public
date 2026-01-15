@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useSearchParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion'; 
 import {
   ArrowRight,
   X,
@@ -218,132 +217,124 @@ export const News = () => {
         </div>
       </div>
 
-      <AnimatePresence>
-        {selectedNews &&
-          createPortal(
-            <div className="fixed inset-0 z-[100000] flex items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                // FIX: Menurunkan tingkat blur dari 3xl ke xl agar tidak LAG
-                className="absolute inset-0 bg-[#0a0f1a]/95 backdrop-blur-xl"
-                onClick={closeNews}
-              ></motion.div>
+      {/* POP-UP READER - INSTANT TANPA ANIMASI (FIX LAG) */}
+      {selectedNews &&
+        createPortal(
+          <div className="fixed inset-0 z-[100000] flex items-center justify-center">
+            {/* Latar Belakang Statis */}
+            <div
+              className="absolute inset-0 bg-[#0a0f1a]/95"
+              onClick={closeNews}
+            ></div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 100 }}
-                // FIX: Menggunakan ease standar agar transisi modal lancar
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="relative bg-white w-full h-full md:max-w-6xl md:h-[92vh] md:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col border border-white/10"
-              >
-                <div className="flex items-center justify-between px-6 md:px-12 py-4 bg-white border-b sticky top-0 z-50">
-                  <div className="flex items-center gap-4 text-left">
-                    <span className="bg-[#E3242B] text-white px-4 py-1 rounded-full font-bold text-[10px] tracking-wide">
-                      {selectedNews.kategori}
-                    </span>
-                    <div className="h-4 w-px bg-gray-200 hidden sm:block"></div>
-                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden sm:block">
-                      Rilis Pers Resmi
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => handleShare(selectedNews)}
-                      className="p-2 text-gray-400 hover:text-[#E3242B] transition-all"
-                      aria-label="Bagikan"
-                    >
-                      <Share2 size={20} />
-                    </button>
-                    <button
-                      onClick={closeNews}
-                      className="p-2 bg-gray-100 text-gray-400 hover:text-[#E3242B] rounded-full transition-all"
-                      aria-label="Tutup"
-                    >
-                      <X size={24} />
-                    </button>
-                  </div>
+            {/* Kotak Berita Statis (Tanpa Framer Motion) */}
+            <div className="relative bg-white w-full h-full md:max-w-6xl md:h-[92vh] md:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col border border-white/10">
+              {/* Header Modal */}
+              <div className="flex items-center justify-between px-6 md:px-12 py-4 bg-white border-b sticky top-0 z-50">
+                <div className="flex items-center gap-4 text-left">
+                  <span className="bg-[#E3242B] text-white px-4 py-1 rounded-full font-bold text-[10px] tracking-wide">
+                    {selectedNews.kategori}
+                  </span>
+                  <div className="h-4 w-px bg-gray-200 hidden sm:block"></div>
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden sm:block">
+                    Rilis Pers Resmi
+                  </span>
                 </div>
 
-                <div className="flex-1 overflow-y-auto custom-scrollbar bg-white">
-                  <div className="max-w-5xl mx-auto flex flex-col items-center">
-                    <div className="w-full aspect-video md:aspect-[21/9] overflow-hidden relative border-b border-gray-100 bg-gray-50">
-                      <img
-                        src={selectedNews.gambar_url}
-                        className="w-full h-full object-cover"
-                        alt="Gambar Berita"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => handleShare(selectedNews)}
+                    className="p-2 text-gray-400 hover:text-[#E3242B] transition-all"
+                    aria-label="Bagikan"
+                  >
+                    <Share2 size={20} />
+                  </button>
+                  <button
+                    onClick={closeNews}
+                    className="p-2 bg-gray-100 text-gray-400 hover:text-[#E3242B] rounded-full transition-all"
+                    aria-label="Tutup"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+              </div>
 
-                    <div className="w-full px-6 md:px-20 py-8 space-y-8 text-left text-[#111827]">
-                      <div className="space-y-4 max-w-4xl">
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tighter leading-[1.05]">
-                          {selectedNews.judul_artikel}
-                        </h1>
+              {/* Konten Reader */}
+              <div className="flex-1 overflow-y-auto custom-scrollbar bg-white">
+                <div className="max-w-5xl mx-auto flex flex-col items-center">
+                  <div className="w-full aspect-video md:aspect-[21/9] overflow-hidden relative border-b border-gray-100 bg-gray-50">
+                    <img
+                      src={selectedNews.gambar_url}
+                      className="w-full h-full object-cover"
+                      alt="Gambar Berita"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  </div>
 
-                        <div className="flex flex-wrap items-center gap-5 py-4 border-y border-gray-100">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#111827] text-[#E3242B] rounded-xl flex items-center justify-center font-bold text-sm transform -rotate-3">
-                              {selectedNews.penulis?.charAt(0)}
-                            </div>
-                            <div className="space-y-0.5">
-                              <p className="text-[10px] font-bold text-gray-400 tracking-widest uppercase leading-none">
-                                Penyusun
-                              </p>
-                              <p className="text-xs font-bold leading-none">
-                                {selectedNews.penulis}
-                              </p>
-                            </div>
+                  <div className="w-full px-6 md:px-20 py-8 space-y-8 text-left text-[#111827]">
+                    <div className="space-y-4 max-w-4xl">
+                      <h1 className="text-3xl md:text-5xl font-black tracking-tighter leading-[1.05]">
+                        {selectedNews.judul_artikel}
+                      </h1>
+
+                      <div className="flex flex-wrap items-center gap-5 py-4 border-y border-gray-100">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-[#111827] text-[#E3242B] rounded-xl flex items-center justify-center font-bold text-sm transform -rotate-3">
+                            {selectedNews.penulis?.charAt(0)}
                           </div>
-
-                          <div className="h-6 w-px bg-gray-100 hidden sm:block"></div>
-
                           <div className="space-y-0.5">
                             <p className="text-[10px] font-bold text-gray-400 tracking-widest uppercase leading-none">
-                              Tanggal Terbit
+                              Penyusun
                             </p>
-                            <p className="text-xs font-bold text-[#E3242B] leading-none">
-                              {selectedNews.tanggal}
+                            <p className="text-xs font-bold leading-none">
+                              {selectedNews.penulis}
                             </p>
                           </div>
                         </div>
-                      </div>
 
-                      <div className="text-gray-700 text-lg md:text-xl leading-[1.8] font-medium text-left tracking-normal whitespace-pre-line relative z-10">
-                        {String(selectedNews.isi_artikel || '')
-                          .split('\n')
-                          .map((para: string, i: number) => (
-                            <p
-                              key={i}
-                              className={`mb-6 ${
-                                i === 0
-                                  ? 'first-letter:text-7xl md:first-letter:text-[9rem] first-letter:font-black first-letter:text-[#E3242B] first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:mt-2'
-                                  : ''
-                              }`}
-                            >
-                              {para}
-                            </p>
-                          ))}
-                      </div>
+                        <div className="h-6 w-px bg-gray-100 hidden sm:block"></div>
 
-                      <div className="pt-8 border-t border-gray-100 flex items-center gap-4 opacity-70 text-left">
-                        <ShieldCheck size={24} className="text-emerald-500" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                          Publikasi Resmi Terverifikasi Lab DDP IPB University
-                        </span>
+                        <div className="space-y-0.5">
+                          <p className="text-[10px] font-bold text-gray-400 tracking-widest uppercase leading-none">
+                            Tanggal Terbit
+                          </p>
+                          <p className="text-xs font-bold text-[#E3242B] leading-none">
+                            {selectedNews.tanggal}
+                          </p>
+                        </div>
                       </div>
+                    </div>
+
+                    <div className="text-gray-700 text-lg md:text-xl leading-[1.8] font-medium text-left tracking-normal whitespace-pre-line relative z-10">
+                      {String(selectedNews.isi_artikel || '')
+                        .split('\n')
+                        .map((para: string, i: number) => (
+                          <p
+                            key={i}
+                            className={`mb-6 ${
+                              i === 0
+                                ? 'first-letter:text-7xl md:first-letter:text-[9rem] first-letter:font-black first-letter:text-[#E3242B] first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:mt-2'
+                                : ''
+                            }`}
+                          >
+                            {para}
+                          </p>
+                        ))}
+                    </div>
+
+                    <div className="pt-8 border-t border-gray-100 flex items-center gap-4 opacity-70 text-left">
+                      <ShieldCheck size={24} className="text-emerald-500" />
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                        Publikasi Resmi Terverifikasi Lab DDP IPB University
+                      </span>
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            </div>,
-            document.body
-          )}
-      </AnimatePresence>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
 
       <style>{`
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
