@@ -183,7 +183,7 @@ export const News = () => {
                     <iframe
                       width="100%"
                       height="100%"
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      src="https://www.youtube.com/embed/B83_p6gRj-Q"
                       title="Dokumenter IPB"
                       frameBorder="0"
                       allowFullScreen
