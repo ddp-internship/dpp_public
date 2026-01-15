@@ -4,7 +4,7 @@ import {
   Building2, Users2, ChevronLeft, ChevronRight,
   TrendingUp, PieChart, Activity, ShieldCheck, 
   BarChart3, Info, Mars, Venus, RefreshCcw, 
-  Award, CheckCircle2
+  Award, CheckCircle2, Search, Zap
 } from 'lucide-react';
 import { api } from '../api';
 
@@ -35,14 +35,14 @@ const Counter = ({ value, duration = 2500 }: { value: any, duration?: number }) 
   return <span>{count.toLocaleString('id-ID')}</span>;
 };
 
-// --- Config Data ---
+// --- Config Data dengan Informasi Tambahan ---
 const statsConfig = [
-  { label: 'Desa', key: 'desa', icon: Map },
-  { label: 'Dusun', key: 'dusun', icon: Database },
-  { label: 'Kelurahan', key: 'kelurahan', icon: Building2 },
-  { label: 'RW', key: 'rw', icon: Home },
-  { label: 'Keluarga', key: 'kk', icon: Users },
-  { label: 'Jiwa', key: 'jiwa', icon: Users2 },
+  { label: 'Desa', key: 'desa', icon: Map, info: 'Cakupan wilayah administratif pedesaan' },
+  { label: 'Dusun', key: 'dusun', icon: Database, info: 'Unit basis data terkecil di tingkat desa' },
+  { label: 'Kelurahan', key: 'kelurahan', icon: Building2, info: 'Wilayah administratif perkotaan mitra' },
+  { label: 'RW', key: 'rw', icon: Home, info: 'Struktur koordinasi lingkungan warga' },
+  { label: 'Keluarga', key: 'kk', icon: Users, iconColor: 'text-emerald-500', info: 'Total Kepala Keluarga terdata valid' },
+  { label: 'Jiwa', key: 'jiwa', icon: Users2, iconColor: 'text-blue-500', info: 'Total populasi termutakhir secara presisi' },
 ];
 
 export const Statistics = () => {
@@ -66,7 +66,7 @@ export const Statistics = () => {
     if (loading) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % statsConfig.length);
-    }, 3000); 
+    }, 4000); // 4 detik agar user sempat membaca info tambahan
 
     return () => clearInterval(interval);
   }, [loading]);
@@ -106,7 +106,6 @@ export const Statistics = () => {
   return (
     <section id="statistics" className="py-24 bg-white px-6 lg:px-24 relative overflow-hidden selection:bg-[#E3242B] selection:text-white">
       
-      {/* CSS FIX: Menggunakan dangerouslySetInnerHTML agar tidak Blank */}
       <style dangerouslySetInnerHTML={{ __html: `
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -120,7 +119,7 @@ export const Statistics = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 mb-16 pb-10 border-b border-gray-100">
           <div className="space-y-3 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2">
-               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Analitik Data</span>
+               <span className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.3em]">Analitik Data Terpadu</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter uppercase leading-none">
               Capaian <span className="text-[#E3242B]">Pendataan</span>
@@ -140,24 +139,31 @@ export const Statistics = () => {
           </div>
         </div>
 
-        {/* --- 2. STATS SLIDER --- */}
+        {/* --- 2. STATS SLIDER (ENHANCED POP-UP) --- */}
         <div 
           ref={scrollRef}
-          className="flex overflow-x-hidden gap-6 pb-24 no-scrollbar pt-10"
+          className="flex overflow-x-hidden gap-6 pb-28 no-scrollbar pt-12"
         >
           {statsConfig.map((item, index) => {
             const isActive = index === activeIndex;
             return (
               <div 
                 key={index}
-                className={`min-w-[280px] md:min-w-[320px] bg-white p-12 rounded-[2.5rem] border transition-all duration-700 flex flex-col items-center text-center relative overflow-hidden
+                className={`min-w-[280px] md:min-w-[320px] bg-white p-12 rounded-[3.5rem] border transition-all duration-700 flex flex-col items-center text-center relative
                   ${isActive 
-                    ? 'scale-110 z-20 border-[#E3242B] shadow-[0_40px_80px_rgba(227,36,43,0.15)] opacity-100' 
-                    : 'scale-90 opacity-40 border-gray-50 blur-[1px]'
+                    ? 'scale-110 z-20 border-[#E3242B] shadow-[0_40px_100px_rgba(227,36,43,0.2)] opacity-100' 
+                    : 'scale-90 opacity-30 border-gray-50 blur-[1px]'
                   }`}
               >
+                {/* Pop-up Indicator Label */}
+                {isActive && (
+                  <div className="absolute -top-5 bg-[#E3242B] text-white text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg animate-bounce">
+                    Data Terverifikasi
+                  </div>
+                )}
+
                 <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-8 transition-all duration-500
-                  ${isActive ? 'bg-[#E3242B] text-white' : 'bg-gray-50 text-gray-400'}`}>
+                  ${isActive ? 'bg-[#E3242B] text-white rotate-[10deg] scale-110' : 'bg-gray-50 text-gray-400'}`}>
                   <item.icon size={36} />
                 </div>
 
@@ -167,102 +173,88 @@ export const Statistics = () => {
                     <Counter value={dbData ? dbData[item.key] : 0} />
                   </h3>
                   <p className={`text-[12px] font-black uppercase tracking-[0.5em] mt-2 
-                    ${isActive ? 'text-gray-600' : 'text-gray-400'}`}>{item.label}</p>
+                    ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>{item.label}</p>
+                  
+                  {/* INFORMATIVE CAPTION (Only on Pop-Up) */}
+                  <p className={`text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-6 transition-all duration-1000 leading-relaxed
+                    ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    {item.info}
+                  </p>
                 </div>
 
                 {isActive && (
-                  <div className="absolute bottom-0 left-0 w-full h-1.5 bg-[#E3242B] animate-in fade-in duration-1000"></div>
+                  <div className="absolute bottom-6 flex gap-1">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#E3242B] animate-pulse"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#E3242B]/40"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#E3242B]/20"></div>
+                  </div>
                 )}
               </div>
             );
           })}
         </div>
 
-        {/* --- 3. DEMOGRAPHIC & TRUSTED SHIELD --- */}
+        {/* --- 3. DEMOGRAPHIC (FULL WIDTH lg:col-span-12) --- */}
         <div className="grid lg:grid-cols-12 gap-8">
-            
-            <div className="lg:col-span-9 bg-[#111827] rounded-[3.5rem] p-10 md:p-12 text-white relative overflow-hidden shadow-2xl border border-white/5">
-                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#E3242B] opacity-[0.03] blur-[120px] rounded-full"></div>
+            <div className="lg:col-span-12 bg-[#111827] rounded-[4rem] p-10 md:p-16 text-white relative overflow-hidden shadow-2xl border border-white/5">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E3242B] opacity-[0.05] blur-[150px] rounded-full"></div>
                 
-                <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-10">
+                <div className="relative z-10 grid md:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-12">
                         <div className="space-y-3">
-                            <h4 className="font-black text-2xl uppercase tracking-tighter">Rasio Demografi</h4>
-                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] opacity-60">Distribusi Gender Seluruh Wilayah</p>
+                            <div className="flex items-center gap-2 text-[#E3242B]">
+                                <Zap size={14} fill="currentColor" />
+                                <h4 className="font-black text-2xl uppercase tracking-tighter">Rasio Demografi Nasional</h4>
+                            </div>
+                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] opacity-60">Visualisasi Distribusi Gender Secara Komprehensif</p>
                         </div>
                         
-                        <div className="space-y-8">
-                            <div className="space-y-4">
+                        <div className="space-y-10">
+                            <div className="space-y-5">
                                 <div className="flex justify-between items-end">
                                     <div className="flex items-center gap-3 text-blue-400">
-                                        <div className="w-8 h-8 rounded-lg bg-blue-400/10 flex items-center justify-center"><Mars size={14} /></div>
-                                        <span className="text-[10px] font-black uppercase tracking-widest">Laki-Laki</span>
+                                        <div className="w-10 h-10 rounded-xl bg-blue-400/10 flex items-center justify-center border border-blue-400/20"><Mars size={18} /></div>
+                                        <span className="text-[11px] font-black uppercase tracking-[0.2em]">Populasi Laki-Laki</span>
                                     </div>
-                                    <span className="text-xl font-black">{jmlLaki.toLocaleString('id-ID')} <span className="text-[10px] opacity-30 font-medium">JIWA</span></span>
+                                    <span className="text-3xl font-black">{jmlLaki.toLocaleString('id-ID')} <span className="text-[10px] opacity-30 font-medium">JIWA</span></span>
                                 </div>
-                                <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                                    <div className="h-full bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)]" style={{ width: `${persenLaki}%` }}></div>
+                                <div className="h-3 bg-white/5 rounded-full overflow-hidden border border-white/5 p-0.5">
+                                    <div className="h-full bg-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.5)] rounded-full transition-all duration-1000" style={{ width: `${persenLaki}%` }}></div>
                                 </div>
                             </div>
-                            <div className="space-y-4">
+                            <div className="space-y-5">
                                 <div className="flex justify-between items-end">
                                     <div className="flex items-center gap-3 text-pink-400">
-                                        <div className="w-8 h-8 rounded-lg bg-pink-400/10 flex items-center justify-center"><Venus size={14} /></div>
-                                        <span className="text-[10px] font-black uppercase tracking-widest">Perempuan</span>
+                                        <div className="w-10 h-10 rounded-xl bg-pink-400/10 flex items-center justify-center border border-pink-400/20"><Venus size={18} /></div>
+                                        <span className="text-[11px] font-black uppercase tracking-[0.2em]">Populasi Perempuan</span>
                                     </div>
-                                    <span className="text-xl font-black">{jmlPerempuan.toLocaleString('id-ID')} <span className="text-[10px] opacity-30 font-medium">JIWA</span></span>
+                                    <span className="text-3xl font-black">{jmlPerempuan.toLocaleString('id-ID')} <span className="text-[10px] opacity-30 font-medium">JIWA</span></span>
                                 </div>
-                                <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                                    <div className="h-full bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.4)]" style={{ width: `${persenPerempuan}%` }}></div>
+                                <div className="h-3 bg-white/5 rounded-full overflow-hidden border border-white/5 p-0.5">
+                                    <div className="h-full bg-pink-500 shadow-[0_0_25px_rgba(236,72,153,0.5)] rounded-full transition-all duration-1000" style={{ width: `${persenPerempuan}%` }}></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white/[0.02] border border-white/5 rounded-[3rem] p-10 flex flex-col items-center justify-center text-center space-y-4 backdrop-blur-xl">
-                        <div className="w-16 h-16 bg-[#E3242B]/10 rounded-2xl flex items-center justify-center text-[#E3242B] mb-2">
-                             <BarChart3 size={32} />
+                    <div className="bg-white/[0.03] border border-white/10 rounded-[4rem] p-16 flex flex-col items-center justify-center text-center space-y-6 backdrop-blur-2xl relative">
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#E3242B]/5 to-transparent rounded-[4rem]"></div>
+                        <div className="w-20 h-20 bg-[#E3242B] rounded-3xl flex items-center justify-center text-white mb-2 shadow-[0_20px_40px_rgba(227,36,43,0.3)] relative z-10">
+                             <BarChart3 size={40} />
                         </div>
-                        <div className="space-y-1">
-                            <h5 className="text-5xl font-black tracking-tighter">
+                        <div className="space-y-2 relative z-10">
+                            <h5 className="text-7xl font-black tracking-tighter">
                                 {jmlPerempuan > 0 ? ((jmlLaki/jmlPerempuan) * 100).toFixed(1) : "0.0"}
                             </h5>
-                            <p className="text-[10px] font-black text-[#E3242B] uppercase tracking-[0.4em]">Indeks Gender</p>
+                            <p className="text-[12px] font-black text-[#E3242B] uppercase tracking-[0.5em]">Indeks Gender</p>
                         </div>
-                        <p className="text-[9px] text-gray-500 uppercase font-bold tracking-widest px-4">Rasio Jenis Kelamin per 100 Perempuan</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="lg:col-span-3 bg-gray-50 rounded-[3.5rem] p-10 flex flex-col justify-center items-center text-center border border-gray-100 relative overflow-hidden group">
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#E3242B]/5 rounded-full blur-3xl"></div>
-                
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl border-4 border-white mb-6 relative z-10 group-hover:rotate-[360deg] transition-transform duration-1000">
-                    <ShieldCheck size={40} className="text-[#E3242B]" />
-                </div>
-                
-                <div className="space-y-4 relative z-10">
-                    <div className="flex items-center justify-center gap-1 text-[#E3242B]">
-                        <CheckCircle2 size={12} />
-                        <span className="text-[9px] font-black uppercase tracking-[0.2em]">Verified Data</span>
-                    </div>
-                    <h4 className="text-xl font-black text-[#111827] uppercase tracking-tighter leading-tight italic">
-                        Standar <br /> Presisi
-                    </h4>
-                    <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest leading-loose">
-                        Metodologi Teruji <br /> Lab DDP IPB University
-                    </p>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t border-gray-200 w-full">
-                    <div className="flex items-center justify-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-                        <span className="text-[8px] font-black text-[#111827] uppercase tracking-[0.3em]">Integrasi Aktif</span>
+                        <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em] px-8 relative z-10 leading-relaxed">
+                            Rasio Jenis Kelamin per 100 Perempuan Terintegrasi Lab DDP IPB University
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
       </div>
     </section>
   );
