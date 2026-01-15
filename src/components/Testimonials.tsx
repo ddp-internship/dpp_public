@@ -50,7 +50,7 @@ export const Testimonials = () => {
             <div className="space-y-3 text-center lg:text-left">
               <span className="text-[11px] font-bold text-[#E3242B] tracking-widest uppercase">Apresiasi Stakeholder</span>
               <h2 className="text-3xl md:text-4xl font-black text-[#111827] tracking-tighter leading-none uppercase">
-                Suara <span className="text-[#E3242B]">Para Tokoh</span>
+                Testimoni <span className="text-[#E3242B]">Tokoh Bangsa</span>
               </h2>
               <p className="text-gray-500 font-medium text-sm max-w-md leading-relaxed">
                 Telah dihimpun <span className="text-[#111827] font-bold">{totalCount} testimoni</span> resmi dari berbagai penjuru negeri untuk Satu Data Indonesia.
