@@ -44,7 +44,6 @@ export const InfografisPage = () => {
         ...visitor,
         infografis_id: selectedItem.id
       });
-      // Handle success response
       setShowModal(false);
       setVisitor({ email: '', nama: '', instansi: '', keperluan: '' });
     } catch (error) {
@@ -81,7 +80,8 @@ export const InfografisPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="text-center space-y-4">
         <div className="w-10 h-10 border-4 border-[#E3242B] border-t-transparent rounded-full animate-spin mx-auto"></div>
-        <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.5em]">Synchronizing Analytics...</p>
+        {/* Penyelarasan font loading */}
+        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Synchronizing Analytics...</p>
       </div>
     </div>
   );
@@ -91,7 +91,6 @@ export const InfografisPage = () => {
       
       {/* --- 1. CENTERED "SOVEREIGN" HERO --- */}
       <section className="relative pt-48 pb-32 md:pt-64 md:pb-64 bg-[#111827] overflow-hidden rounded-b-[4rem] md:rounded-b-[6rem]">
-        {/* Background Layers */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'url("/img/pattern.png")', backgroundSize: '120px' }}></div>
         <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-gradient-to-br from-[#E3242B]/20 to-transparent blur-[180px] rounded-full -translate-y-1/3 translate-x-1/4"></div>
         
@@ -99,15 +98,16 @@ export const InfografisPage = () => {
           <div className="space-y-10 animate-in fade-in slide-in-from-bottom-5 duration-1000">
             <div className="inline-flex items-center gap-4 px-5 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md mx-auto">
                <BarChart3 size={14} className="text-[#E3242B]" />
-               <span className="text-[9px] md:text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">Arsip Analitik Visual</span>
+               {/* Penyelarasan Label Hero */}
+               <span className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Arsip Analitik Visual</span>
             </div>
             
             <div className="relative">
-                {/* Watermark Centered */}
                 <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/[0.02] text-[6rem] md:text-[12rem] font-black uppercase tracking-tighter pointer-events-none select-none hidden lg:block w-full">
                   presisi
                 </h2>
-                <h1 className="text-5xl md:text-[90px] font-black text-white uppercase tracking-tighter leading-[0.85] relative z-10">
+                {/* Penyelarasan Judul Hero */}
+                <h1 className="text-5xl md:text-[90px] font-black text-white uppercase tracking-tighter leading-none relative z-10">
                   Sajian <br /> 
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E3242B] to-[#ff4d4d]">
                       Infografis
@@ -115,13 +115,13 @@ export const InfografisPage = () => {
                 </h1>
             </div>
 
-            <p className="text-gray-400 font-bold uppercase text-[10px] md:text-xs tracking-[0.25em] leading-loose max-w-2xl mx-auto border-y border-white/5 py-8">
+            {/* Penyelarasan Deskripsi Hero */}
+            <p className="text-gray-400 font-medium text-sm md:text-base leading-relaxed max-w-2xl mx-auto border-y border-white/5 py-8">
                Interpretasi visual data desa presisi yang menyederhanakan kompleksitas menjadi informasi strategis untuk pembangunan nasional.
             </p>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-20">
             <ArrowDown size={14} className="text-white animate-bounce" />
         </div>
@@ -138,7 +138,6 @@ export const InfografisPage = () => {
                     className="group cursor-pointer bg-white border border-gray-100 rounded-[2.5rem] overflow-hidden hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] transition-all duration-700 flex flex-col h-full text-center"
                     onClick={() => handleOpenGate(item)}
                 >
-                  {/* Visual Header - Smaller Aspect Ratio */}
                   <div className="relative aspect-[4/5] overflow-hidden bg-gray-50 border-b border-gray-50">
                     <img src={Array.isArray(item.gambar_urls) ? item.gambar_urls[0] : item.gambar_urls} className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" alt={item.judul} />
                     <div className="absolute inset-0 bg-[#111827]/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[1px]">
@@ -146,21 +145,29 @@ export const InfografisPage = () => {
                            <Maximize2 size={20}/>
                         </div>
                     </div>
-                    {/* Page Indicator */}
-                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[8px] font-black px-2.5 py-1 rounded-lg uppercase tracking-widest">
+                    {/* Penyelarasan Slide Indicator */}
+                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[8px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-widest">
                        {Array.isArray(item.gambar) ? item.gambar.length : 1} Slides
                     </div>
                   </div>
 
-                  {/* Content Details - Tight Padding */}
                   <div className="p-6 md:p-8 space-y-4 flex-grow flex flex-col items-center">
-                      <span className="text-[8px] font-black text-[#E3242B] uppercase tracking-[0.3em] bg-red-50 px-3 py-1 rounded-full border border-red-100">
+                      {/* Penyelarasan Kategori */}
+                      <span className="text-[8px] font-bold text-[#E3242B] uppercase tracking-widest bg-red-50 px-3 py-1 rounded-full border border-red-100">
                         {item.kategori || 'Analitik'}
                       </span>
+                      {/* Penyelarasan Judul Item */}
                       <h4 className="font-black text-sm md:text-base text-[#111827] uppercase tracking-tighter leading-tight line-clamp-2 group-hover:text-[#E3242B] transition-colors">
                           {item.judul}
                       </h4>
-                      <div className="h-0.5 w-8 bg-gray-100 rounded-full group-hover:w-12 group-hover:bg-[#E3242B] transition-all duration-500"></div>
+                      <div className="flex items-center flex-col gap-3">
+                         <div className="h-0.5 w-8 bg-gray-100 rounded-full group-hover:w-12 group-hover:bg-[#E3242B] transition-all duration-500"></div>
+                         {/* Penyelarasan Metadata */}
+                         <div className="flex items-center gap-2">
+                            <Zap size={10} className="text-gray-300 fill-gray-300" />
+                            <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">DDP Visual Lab</span>
+                         </div>
+                      </div>
                   </div>
                 </div>
               ))}
@@ -168,7 +175,7 @@ export const InfografisPage = () => {
           ) : (
             <div className="py-40 opacity-20">
                 <BarChart3 size={64} className="mx-auto mb-4" />
-                <p className="font-black uppercase tracking-[0.4em] text-xs">Katalog Belum Tersedia</p>
+                <p className="font-bold uppercase tracking-widest text-[10px]">Katalog Belum Tersedia</p>
             </div>
           )}
 
@@ -176,7 +183,8 @@ export const InfografisPage = () => {
           {lastPage > 1 && (
             <div className="mt-24 flex justify-center items-center gap-4 border-t border-gray-50 pt-12">
               <button disabled={page === 1} onClick={() => setPage(p => p - 1)} className="w-12 h-12 rounded-2xl border border-gray-100 flex items-center justify-center text-[#111827] hover:bg-[#111827] hover:text-white disabled:opacity-20 transition-all shadow-sm bg-white"><ChevronLeft size={20}/></button>
-              <div className="flex items-center gap-4 font-black text-[10px] text-[#111827]">
+              {/* Penyelarasan Font Pagination */}
+              <div className="flex items-center gap-4 font-black text-[10px] text-[#111827] tracking-widest">
                   <span className="bg-[#111827] text-white w-8 h-8 flex items-center justify-center rounded-lg">{page}</span>
                   <span className="text-gray-300">/</span>
                   <span className="text-gray-400">{lastPage}</span>
@@ -187,14 +195,14 @@ export const InfografisPage = () => {
         </div>
       </section>
 
-      {/* --- 3. THE IMMERSIVE MODAL (SAME AS OTHERS) --- */}
+      {/* --- 3. THE IMMERSIVE MODAL --- */}
       {showModal && createPortal(
-        <div className="fixed inset-0 z-[100000] flex items-center justify-center p-4 md:p-12">
+        <div className="fixed inset-0 z-[100000] flex items-center justify-center p-4 md:p-12 text-left">
           <div className="absolute inset-0 bg-[#0B1120]/98 backdrop-blur-3xl animate-fade-in duration-700" onClick={() => setShowModal(false)}></div>
           
           <div className="relative bg-white w-full max-w-7xl h-full max-h-[90vh] md:max-h-[85vh] rounded-[3.5rem] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.5)] flex flex-col md:flex-row animate-in zoom-in-95 duration-500 border border-white/10">
             
-            {/* LEFT: SLIDESHOW (STATIC) */}
+            {/* LEFT: SLIDESHOW */}
             <div className="h-[45%] md:h-full md:flex-1 bg-[#0a0f1a] relative flex items-center justify-center group/slider overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
                <img 
                   key={currentSlide}
@@ -202,25 +210,20 @@ export const InfografisPage = () => {
                   className="max-w-[95%] max-h-[95%] object-contain animate-in fade-in slide-in-from-right-4 duration-700" 
                   alt="Slide" 
                />
-               
-               <button onClick={handlePrev} className="absolute left-6 p-4 bg-white/5 hover:bg-[#E3242B] rounded-2xl text-white transition-all backdrop-blur-md border border-white/10 opacity-0 group-hover/slider:opacity-100">
-                  <ChevronLeft size={24} />
-               </button>
-               <button onClick={handleNext} className="absolute right-6 p-4 bg-white/5 hover:bg-[#E3242B] rounded-2xl text-white transition-all backdrop-blur-md border border-white/10 opacity-0 group-hover/slider:opacity-100">
-                  <ChevronRight size={24} />
-               </button>
-               
-               <div className="absolute bottom-8 bg-[#E3242B] px-6 py-2 rounded-full text-white font-black text-[9px] uppercase tracking-[0.3em] shadow-2xl">
+               <button onClick={handlePrev} className="absolute left-6 p-4 bg-white/5 hover:bg-[#E3242B] rounded-2xl text-white transition-all backdrop-blur-md border border-white/10 opacity-0 group-hover/slider:opacity-100"><ChevronLeft size={24} /></button>
+               <button onClick={handleNext} className="absolute right-6 p-4 bg-white/5 hover:bg-[#E3242B] rounded-2xl text-white transition-all backdrop-blur-md border border-white/10 opacity-0 group-hover/slider:opacity-100"><ChevronRight size={24} /></button>
+               {/* Penyelarasan Slide Counter */}
+               <div className="absolute bottom-8 bg-[#E3242B] px-6 py-2 rounded-full text-white font-bold text-[9px] uppercase tracking-widest shadow-2xl">
                   Slide {currentSlide + 1} / {selectedItem.gambar.length}
                </div>
             </div>
 
-            {/* RIGHT: INFO & FORM (SCROLLABLE) */}
-            <div className="h-[55%] md:h-full md:w-[450px] bg-white flex flex-col overflow-hidden text-left">
+            {/* RIGHT: INFO & FORM */}
+            <div className="h-[55%] md:h-full md:w-[450px] bg-white flex flex-col overflow-hidden">
                 <div className="p-8 pb-4 flex justify-between items-center border-b border-gray-50 shrink-0">
                     <div className="flex items-center gap-2">
                         <Zap size={16} className="text-[#E3242B] fill-[#E3242B]" />
-                        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Metadata Gate</span>
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Metadata Gate</span>
                     </div>
                     <button onClick={() => setShowModal(false)} className="p-2 text-gray-300 hover:text-[#E3242B] hover:bg-red-50 rounded-full transition-all"><X size={24}/></button>
                 </div>
@@ -229,16 +232,16 @@ export const InfografisPage = () => {
                     <div className="space-y-4">
                         <h2 className="text-3xl font-black text-[#111827] uppercase tracking-tighter leading-tight">{selectedItem?.judul}</h2>
                         <div className="h-1.5 w-12 bg-[#E3242B] rounded-full"></div>
-                        <p className="text-gray-500 font-bold text-[11px] uppercase leading-[2.2] tracking-widest text-justify">
+                        {/* Penyelarasan Keterangan */}
+                        <p className="text-gray-500 font-medium text-sm leading-relaxed text-justify">
                             {selectedItem?.keterangan || "Analisis visual terpadu berbasis data presisi laboratorium IPB University."}
                         </p>
                     </div>
 
-                    {/* FORM SECTION */}
                     <div className="space-y-8 pt-8 border-t border-gray-100">
                         <div className="space-y-2 text-center">
                             <ShieldCheck size={28} className="text-emerald-500 mx-auto" />
-                            <h3 className="font-black text-[#111827] uppercase tracking-widest text-xs">Verifikasi Akses</h3>
+                            <h3 className="font-bold text-[#111827] uppercase tracking-widest text-[10px]">Verifikasi Akses</h3>
                         </div>
 
                         <form onSubmit={handleDownloadProcess} className="space-y-5">
@@ -248,17 +251,18 @@ export const InfografisPage = () => {
                                 { label: 'Asal Instansi *', key: 'instansi', type: 'text' }
                             ].map((f, i) => (
                                 <div key={i} className="space-y-1.5">
-                                    <label className="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">{f.label}</label>
-                                    <input required className="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-4 focus:ring-red-50 text-sm font-bold text-[#111827] outline-none transition-all" 
+                                    <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">{f.label}</label>
+                                    <input required className="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-4 focus:ring-red-50 text-sm font-bold text-[#111827] tracking-tight outline-none transition-all" 
                                     onChange={e => setVisitor({...visitor, [f.key]: e.target.value})} />
                                 </div>
                             ))}
                             <div className="space-y-1.5">
-                                <label className="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Tujuan Penggunaan *</label>
-                                <textarea required className="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-4 focus:ring-red-50 h-24 resize-none text-sm font-bold text-[#111827] outline-none transition-all" 
+                                <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">Tujuan Penggunaan *</label>
+                                <textarea required className="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-4 focus:ring-red-50 h-24 resize-none text-sm font-bold text-[#111827] tracking-tight outline-none transition-all" 
                                 onChange={e => setVisitor({...visitor, keperluan: e.target.value})} />
                             </div>
-                            <button type="submit" disabled={isDownloading} className="w-full py-5 bg-[#E3242B] text-white font-black rounded-2xl uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-[#111827] transition-all transform active:scale-95 group">
+                            {/* Penyelarasan Button Request */}
+                            <button type="submit" disabled={isDownloading} className="w-full py-5 bg-[#E3242B] text-white font-bold rounded-2xl uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#111827] transition-all transform active:scale-95 group">
                                 {isDownloading ? 'Memproses...' : 'Request Download ZIP'} <Download size={16} className="inline ml-2 group-hover:translate-y-0.5 transition-transform" />
                             </button>
                         </form>
@@ -266,7 +270,7 @@ export const InfografisPage = () => {
                 </div>
 
                 <div className="p-8 border-t border-gray-50 shrink-0 bg-gray-50/50 text-center">
-                    <p className="text-[9px] font-black text-gray-300 uppercase tracking-[0.5em]">Official Lab DDP IPB Release</p>
+                    <p className="text-[9px] font-bold text-gray-300 uppercase tracking-widest">Official Lab DDP IPB University Release</p>
                 </div>
             </div>
           </div>
@@ -275,13 +279,14 @@ export const InfografisPage = () => {
       )}
 
       {/* FOOTER */}
-      <div className="py-24 flex flex-col items-center gap-6 bg-white border-t border-gray-50">
-           <div className="h-px w-24 bg-gray-200"></div>
-           <p className="text-[10px] font-black text-gray-400 uppercase tracking-[1em]">Laboratory DDP IPB University</p>
-      </div>
+      <footer className="py-24 flex flex-col items-center gap-6 bg-white border-t border-gray-50">
+           <div className="h-px w-32 bg-gray-200"></div>
+           <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest text-center">Laboratory Data Desa Presisi IPB University</p>
+      </footer>
 
       <style>{`
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #E3242B; border-radius: 10px; }
       `}</style>
     </div>
